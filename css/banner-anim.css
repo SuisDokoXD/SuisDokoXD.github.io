@@ -70,8 +70,9 @@
   left: 0;
   right: 0;
   top: -60px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.85);
+  height: 3px;
+  background: #00e5ff;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.7), 0 0 14px rgba(0, 229, 255, 0.4);
   transform: scaleX(0);
   transform-origin: left center;
   animation: line-sweep-ltr 1.2s cubic-bezier(0.7, 0, 0.3, 1) 0.1s both,
@@ -86,8 +87,9 @@
   left: 0;
   right: 0;
   bottom: -60px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.85);
+  height: 3px;
+  background: #00e5ff;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.7), 0 0 14px rgba(0, 229, 255, 0.4);
   transform: scaleX(0);
   transform-origin: right center;
   animation: line-sweep-rtl 1.2s cubic-bezier(0.7, 0, 0.3, 1) 0.3s both,
@@ -113,8 +115,10 @@
   left: 0;
   right: 0;
   top: 50%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.45);
+  height: 2px;
+  background: #00e5ff;
+  box-shadow: 0 0 5px rgba(0, 229, 255, 0.6);
+  opacity: 0.8;
   transform: scaleX(0);
   transform-origin: center center;
   animation: line-sweep-center 1.4s cubic-bezier(0.7, 0, 0.3, 1) 0.5s both,

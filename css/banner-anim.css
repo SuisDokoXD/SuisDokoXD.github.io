@@ -1,174 +1,165 @@
 /* ============================================================
- * Banner title animation — cyberpunk-ish gradient + glow + entrance
- * Targets Butterfly's #site-title (main banner H1) and #site-subtitle
+ * Banner intro animation — runs once on page load, then everything
+ * returns to Butterfly's default static look.
+ *
+ *   • Title "Robot & Code" flies in from the LEFT
+ *   • Subtitle flies in from the RIGHT (slightly delayed)
+ *   • Three solid-color horizontal lines sweep across the banner
+ *     during the entrance, then disappear
+ *
+ * No looping color/glow/gradient effects. The final state is
+ * identical to the original.
  * ============================================================ */
 
+/* -------------------- Title: fly in from LEFT -------------------- */
 #site-title {
-  font-weight: 900 !important;
-  letter-spacing: 0.08em;
-  /* Multi-stop gradient: cyan → purple → magenta → purple → cyan, loop */
-  background: linear-gradient(
-    90deg,
-    #00f0ff 0%,
-    #b16cea 25%,
-    #ff5ed2 50%,
-    #b16cea 75%,
-    #00f0ff 100%
-  );
-  background-size: 220% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation:
-    title-entrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) both,
-    title-gradient-flow 8s linear infinite,
-    title-glow-breath 4s ease-in-out infinite alternate;
-  position: relative;
-  display: inline-block;
-  transition: transform 0.25s ease;
+  animation: title-fly-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-#site-title:hover {
-  transform: scale(1.04) rotate(-0.5deg);
-}
-
-/* Code-style brackets around the title — independent color, not gradient */
-#site-title::before,
-#site-title::after {
-  -webkit-text-fill-color: initial;
-  background: none;
-  font-weight: 300;
-  opacity: 0.55;
-  font-family: 'Fira Code', 'Consolas', monospace;
-  animation: bracket-pulse 2.4s ease-in-out infinite;
-}
-
-#site-title::before {
-  content: "< ";
-  color: #00f0ff;
-  text-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
-  margin-right: 0.15em;
-}
-
-#site-title::after {
-  content: " />";
-  color: #ff5ed2;
-  text-shadow: 0 0 8px rgba(255, 94, 210, 0.7);
-  margin-left: 0.15em;
-  animation-direction: reverse;
-}
-
-/* Entrance: fade up + unblur + scale */
-@keyframes title-entrance {
+@keyframes title-fly-in {
   0% {
     opacity: 0;
-    transform: translateY(50px) scale(0.85);
-    filter: blur(10px);
-    letter-spacing: 0.3em;
+    transform: translateX(-120vw);
+    filter: blur(6px);
   }
   60% {
-    filter: blur(2px);
-    letter-spacing: 0.12em;
+    filter: blur(1px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(0);
     filter: blur(0);
-    letter-spacing: 0.08em;
   }
 }
 
-/* Continuous gradient sweep */
-@keyframes title-gradient-flow {
-  0%   { background-position: 0% center; }
-  100% { background-position: 220% center; }
+/* -------------------- Subtitle: fly in from RIGHT --------------- */
+#site-subtitle {
+  animation: subtitle-fly-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.25s;
 }
 
-/* Breathing glow halo behind text */
-@keyframes title-glow-breath {
-  0%   {
-    filter:
-      drop-shadow(0 0 6px rgba(0, 240, 255, 0.4))
-      drop-shadow(0 0 14px rgba(177, 108, 234, 0.25));
+@keyframes subtitle-fly-in {
+  0% {
+    opacity: 0;
+    transform: translateX(120vw);
+    filter: blur(6px);
+  }
+  60% {
+    filter: blur(1px);
   }
   100% {
-    filter:
-      drop-shadow(0 0 14px rgba(0, 240, 255, 0.7))
-      drop-shadow(0 0 28px rgba(255, 94, 210, 0.45));
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
   }
 }
 
-@keyframes bracket-pulse {
-  0%, 100% { opacity: 0.35; }
-  50%      { opacity: 0.85; }
-}
-
-/* ============================================================
- * Subtitle (typewriter) — enhance the cursor + add subtle glow
- * ============================================================ */
-
-#site-subtitle {
-  letter-spacing: 0.04em;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
-}
-
-#site-subtitle .typed-cursor,
-.typed-cursor {
-  color: #00f0ff !important;
-  text-shadow:
-    0 0 6px rgba(0, 240, 255, 0.9),
-    0 0 14px rgba(0, 240, 255, 0.5) !important;
-  font-weight: 100;
-  margin-left: 2px;
-}
-
-/* ============================================================
- * Subtle scan-line across the title every 6s (faux hologram)
- * ============================================================ */
-
-#site-title::first-letter {
-  /* No-op rule — placeholder so legacy parsers don't choke. */
-  text-rendering: optimizeLegibility;
-}
-
-/* Optional: thin scan line that sweeps across periodically.
-   Disabled by default; uncomment to enable.
-#site-title {
+/* -------------------- Background sweep lines -------------------- *
+ * Three solid white horizontal bars sweep across the banner,
+ * disappearing once the entrance is done. Attached to #site-info
+ * so they're scoped to the banner, not the rest of the page.
+ * ---------------------------------------------------------------- */
+#site-info {
   position: relative;
 }
-#site-title::before,
-#site-title::after { z-index: 2; }
-*/
 
-/* ============================================================
- * Mobile tweaks — reduce intensity on small screens
- * ============================================================ */
-
-@media (max-width: 768px) {
-  #site-title {
-    letter-spacing: 0.05em;
-    animation:
-      title-entrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) both,
-      title-gradient-flow 10s linear infinite,
-      title-glow-breath 5s ease-in-out infinite alternate;
-  }
-  #site-title::before { margin-right: 0.1em; }
-  #site-title::after  { margin-left: 0.1em; }
+/* Top line — sweeps left → right, fastest */
+#site-info::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: line-sweep-ltr 1.2s cubic-bezier(0.7, 0, 0.3, 1) 0.1s both,
+             line-fade-out 0.4s ease-out 1.3s both;
+  pointer-events: none;
 }
 
-/* ============================================================
- * Reduce motion for users who prefer it
- * ============================================================ */
+/* Bottom line — sweeps right → left */
+#site-info::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: scaleX(0);
+  transform-origin: right center;
+  animation: line-sweep-rtl 1.2s cubic-bezier(0.7, 0, 0.3, 1) 0.3s both,
+             line-fade-out 0.4s ease-out 1.5s both;
+  pointer-events: none;
+}
 
+/* Middle accent line — thinner, in between, slight delay */
+#site-info {
+  --middle-line: 1px solid rgba(255, 255, 255, 0.55);
+}
+.layout.layout--index #site-info > h1 ~ div::before,
+#site-info > .site-subtitle::after { /* fallback: skip if structure differs */
+  content: "";
+}
+
+/* Cleanest cross-browser: use an extra ::before on the parent
+   page-header for a 3rd line that sweeps mid-height. */
+#page-header.full_page::before,
+#page-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scaleX(0);
+  transform-origin: center center;
+  animation: line-sweep-center 1.4s cubic-bezier(0.7, 0, 0.3, 1) 0.5s both,
+             line-fade-out 0.5s ease-out 1.8s both;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* -------------------- Keyframes -------------------- */
+@keyframes line-sweep-ltr {
+  0%   { transform: scaleX(0); transform-origin: left center; }
+  100% { transform: scaleX(1); transform-origin: left center; }
+}
+
+@keyframes line-sweep-rtl {
+  0%   { transform: scaleX(0); transform-origin: right center; }
+  100% { transform: scaleX(1); transform-origin: right center; }
+}
+
+@keyframes line-sweep-center {
+  0%   { transform: scaleX(0); transform-origin: center center; }
+  100% { transform: scaleX(1); transform-origin: center center; }
+}
+
+@keyframes line-fade-out {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* -------------------- Reduced motion -------------------- *
+ * Respect user preference: skip the animation entirely.
+ * ------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   #site-title,
-  #site-title::before,
-  #site-title::after {
+  #site-subtitle,
+  #site-info::before,
+  #site-info::after,
+  #page-header::before,
+  #page-header.full_page::before {
     animation: none !important;
   }
-  #site-title {
-    -webkit-text-fill-color: #00f0ff;
-    color: #00f0ff;
+  #site-info::before,
+  #site-info::after,
+  #page-header::before,
+  #page-header.full_page::before {
+    display: none;
   }
 }

@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客上线了</title>
-    <url>/posts/hello/</url>
-    <content><![CDATA[<h2 id="终于把博客搭起来了"><a href="#终于把博客搭起来了" class="headerlink" title="终于把博客搭起来了"></a>终于把博客搭起来了</h2><p>折腾了不到一小时，从零到上线。技术栈也没什么花哨的：</p>
-<ul>
-<li><strong>生成器</strong>：Hexo 7.x</li>
-<li><strong>主题</strong>：<a href="https://butterfly.js.org/">Butterfly</a> (27k+ star，国产主题之光)</li>
-<li><strong>部署</strong>：GitHub Pages</li>
-<li><strong>域名</strong>：先用 <code>suisdokoxd.github.io</code>，后面可能换 <code>.me</code></li>
-</ul>
-<h2 id="这个博客会写什么"><a href="#这个博客会写什么" class="headerlink" title="这个博客会写什么"></a>这个博客会写什么</h2><p>主要是技术向，预计的几个方向：</p>
-<h3 id="🤖-哨兵导航相关"><a href="#🤖-哨兵导航相关" class="headerlink" title="🤖 哨兵导航相关"></a>🤖 哨兵导航相关</h3><ul>
-<li>Mid360 LiDAR + FAST-LIO 调参经验</li>
-<li>ROS2 Nav2 在 RM 赛场的实战</li>
-<li>斜坡地形误识别的排查全过程（这是当前最头疼的）</li>
-<li>TF 树 &#x2F; costmap &#x2F; behavior tree 笔记</li>
-</ul>
-<h3 id="✈️-嵌入式开发"><a href="#✈️-嵌入式开发" class="headerlink" title="✈️ 嵌入式开发"></a>✈️ 嵌入式开发</h3><ul>
-<li>ESP32-C3 + MicroPython 路线避坑</li>
-<li>IMU 数据融合（互补滤波 &#x2F; EKF &#x2F; 卡尔曼）</li>
-<li>掌上飞机从 0 到能飞的全记录</li>
-</ul>
-<h3 id="🛠️-工具链"><a href="#🛠️-工具链" class="headerlink" title="🛠️ 工具链"></a>🛠️ 工具链</h3><ul>
-<li>Claude Code &#x2F; Cursor 工作流</li>
-<li>Linux 开发环境配置</li>
-<li>偶尔写点小工具的源码解读</li>
-</ul>
-<h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><p>三个原因：</p>
-<ol>
-<li><strong>给未来的自己看</strong>。调试机器人时踩的每一个坑，过几个月就忘了，写下来比记在脑子里靠谱</li>
-<li><strong>强迫自己想清楚</strong>。能写明白才算真懂</li>
-<li><strong>认识更多折腾机器人的朋友</strong>。RM 圈子不大，希望能交到同好</li>
-</ol>
-<h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>如果你也是 RM 选手、嵌入式爱好者、或者只是路过的同学，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 留言聊聊。</p>
-<p>下篇文章应该会是 <strong>“哨兵 SLAM 斜坡误识别问题排查全记录”</strong> —— 还在跟这个 bug 死磕，磕完就来更新。</p>
-<blockquote>
-<p>“机器人不会自己跑起来，除非你写对了每一行代码。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</title>
     <url>/posts/inkforge-devlog/</url>
     <content><![CDATA[<blockquote>
@@ -133,6 +86,10 @@
 
 <p>流式调用走 async iterator + <code>BrowserWindow.webContents.send</code> 推 chunk 给 renderer，事件有 <code>phase</code> &#x2F; <code>chunk</code> &#x2F; <code>snapshot</code> &#x2F; <code>done</code> 四种。</p>
 <hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-12.gif" alt="bocchi guitar" style="max-width:280px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
+</p>
+
 <h2 id="4-五大引擎深挖"><a href="#4-五大引擎深挖" class="headerlink" title="4. 五大引擎深挖"></a>4. 五大引擎深挖</h2><h3 id="4-1-AutoWriter-Engine-——-4-Agent-流水线"><a href="#4-1-AutoWriter-Engine-——-4-Agent-流水线" class="headerlink" title="4.1 AutoWriter Engine —— 4-Agent 流水线"></a>4.1 AutoWriter Engine —— 4-Agent 流水线</h3><p>整章自动生成的核心。流水线如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">大纲 + 世界设定 + 章节目标</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Planner  │ ← 拆 beat 计划（章节 → 若干 beat）</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Writer   │ ← 每个 beat 生成段落</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Critic   │ ← 0~10 分打分，低于阈值退回 Writer 重写</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Reflector│ ← 全章结束后更新长期记忆（章节摘要 + 人物状态线索）</span><br><span class="line">└──────────┘</span><br></pre></td></tr></table></figure>
 
@@ -339,6 +296,10 @@
 </ul>
 <p>用户在 SceneRoutingPanel 里把场景 ↔ provider 拖拽绑定，不同任务自动路由到合适的模型。</p>
 <hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-7.gif" alt="hitori" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
 <h2 id="7-Provider-系统-——-不只是-“key-一个”"><a href="#7-Provider-系统-——-不只是-“key-一个”" class="headerlink" title="7. Provider 系统 —— 不只是 “key 一个”"></a>7. Provider 系统 —— 不只是 “key 一个”</h2><p><code>provider_keys</code> 表（v12 加的）支持：</p>
 <ul>
 <li><strong>多 key</strong>：同一个 provider（比如 OpenAI）配多个 key</li>
@@ -384,6 +345,10 @@
 
 <p>新增 IPC channel 不用动总入口，类型自动合并。<strong>这是大型 monorepo 的福音</strong>。</p>
 <hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-11.gif" alt="bocchi reflection" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
 <h2 id="9-让我重新认识项目的几件事"><a href="#9-让我重新认识项目的几件事" class="headerlink" title="9. 让我重新认识项目的几件事"></a>9. 让我重新认识项目的几件事</h2><p>读完一圈代码，几个让我意外的发现：</p>
 <ol>
 <li><strong>不是 RAG，是 LIKE 关键词 + 智能路由</strong>。务实，够用，hook 留好将来切 vector DB。</li>
@@ -422,6 +387,55 @@
         <tag>SQLite</tag>
         <tag>monorepo</tag>
         <tag>devlog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客上线了</title>
+    <url>/posts/hello/</url>
+    <content><![CDATA[<h2 id="终于把博客搭起来了"><a href="#终于把博客搭起来了" class="headerlink" title="终于把博客搭起来了"></a>终于把博客搭起来了</h2><p>折腾了不到一小时，从零到上线。技术栈也没什么花哨的：</p>
+<ul>
+<li><strong>生成器</strong>：Hexo 7.x</li>
+<li><strong>主题</strong>：<a href="https://butterfly.js.org/">Butterfly</a> (27k+ star，国产主题之光)</li>
+<li><strong>部署</strong>：GitHub Pages</li>
+<li><strong>域名</strong>：先用 <code>suisdokoxd.github.io</code>，后面可能换 <code>.me</code></li>
+</ul>
+<h2 id="这个博客会写什么"><a href="#这个博客会写什么" class="headerlink" title="这个博客会写什么"></a>这个博客会写什么</h2><p>主要是技术向，预计的几个方向：</p>
+<h3 id="🤖-哨兵导航相关"><a href="#🤖-哨兵导航相关" class="headerlink" title="🤖 哨兵导航相关"></a>🤖 哨兵导航相关</h3><ul>
+<li>Mid360 LiDAR + FAST-LIO 调参经验</li>
+<li>ROS2 Nav2 在 RM 赛场的实战</li>
+<li>斜坡地形误识别的排查全过程（这是当前最头疼的）</li>
+<li>TF 树 &#x2F; costmap &#x2F; behavior tree 笔记</li>
+</ul>
+<h3 id="✈️-嵌入式开发"><a href="#✈️-嵌入式开发" class="headerlink" title="✈️ 嵌入式开发"></a>✈️ 嵌入式开发</h3><ul>
+<li>ESP32-C3 + MicroPython 路线避坑</li>
+<li>IMU 数据融合（互补滤波 &#x2F; EKF &#x2F; 卡尔曼）</li>
+<li>掌上飞机从 0 到能飞的全记录</li>
+</ul>
+<h3 id="🛠️-工具链"><a href="#🛠️-工具链" class="headerlink" title="🛠️ 工具链"></a>🛠️ 工具链</h3><ul>
+<li>Claude Code &#x2F; Cursor 工作流</li>
+<li>Linux 开发环境配置</li>
+<li>偶尔写点小工具的源码解读</li>
+</ul>
+<h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><p>三个原因：</p>
+<ol>
+<li><strong>给未来的自己看</strong>。调试机器人时踩的每一个坑，过几个月就忘了，写下来比记在脑子里靠谱</li>
+<li><strong>强迫自己想清楚</strong>。能写明白才算真懂</li>
+<li><strong>认识更多折腾机器人的朋友</strong>。RM 圈子不大，希望能交到同好</li>
+</ol>
+<h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>如果你也是 RM 选手、嵌入式爱好者、或者只是路过的同学，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 留言聊聊。</p>
+<p>下篇文章应该会是 <strong>“哨兵 SLAM 斜坡误识别问题排查全记录”</strong> —— 还在跟这个 bug 死磕，磕完就来更新。</p>
+<blockquote>
+<p>“机器人不会自己跑起来，除非你写对了每一行代码。”</p>
+</blockquote>
+<p style="text-align:center;margin-top:40px;">
+  <img src="/img/gif/bocchi-4.gif" alt="thumbs up" style="max-width:240px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
+</p>]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>

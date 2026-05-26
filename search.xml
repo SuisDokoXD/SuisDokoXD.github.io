@@ -61,8 +61,8 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Monorepo packages</td>
-<td><strong>11 个</strong>（含 <code>apps/desktop</code>）</td>
+<td>Monorepo 项目</td>
+<td><strong>10 个</strong>（1 个 app + 9 个 package）</td>
 </tr>
 <tr>
 <td>数据库 migration</td>
@@ -126,7 +126,7 @@
 <li><strong>electron-updater</strong>：自动更新。</li>
 </ul>
 <hr>
-<h2 id="3-Monorepo-真实结构"><a href="#3-Monorepo-真实结构" class="headerlink" title="3. Monorepo 真实结构"></a>3. Monorepo 真实结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inkforge-src/</span><br><span class="line">├── apps/desktop/                 Electron 壳 (main + preload + renderer)</span><br><span class="line">├── packages/shared/              40+ domain type + 221 IPC channel 声明 + i18n</span><br><span class="line">├── packages/storage/             better-sqlite3 + 26 migrations + 37 repos</span><br><span class="line">├── packages/llm-core/            Anthropic / OpenAI / Gemini / OpenAI-Compat</span><br><span class="line">├── packages/skill-engine/        自研 macro 模板 + world-info-activator</span><br><span class="line">├── packages/tavern-engine/       多 Agent 角色对话（director / character / summary）</span><br><span class="line">├── packages/auto-writer-engine/  4-Agent 写作流水线 + OOC-gate</span><br><span class="line">├── packages/research-core/       Tavily / Bing / SerpAPI + LLM fallback</span><br><span class="line">├── packages/review-engine/       5 维度审稿（人物 / 时间线 / 伏笔 / 世界观 / 语言）</span><br><span class="line">├── packages/editor/              TipTap 包装 + word-count + analysis-scheduler</span><br><span class="line">└── ...</span><br></pre></td></tr></table></figure>
+<h2 id="3-Monorepo-真实结构"><a href="#3-Monorepo-真实结构" class="headerlink" title="3. Monorepo 真实结构"></a>3. Monorepo 真实结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">inkforge-src/</span><br><span class="line">├── apps/desktop/                 Electron 壳 (main + preload + renderer)</span><br><span class="line">├── packages/shared/              40+ domain type + 221 IPC channel 声明 + i18n</span><br><span class="line">├── packages/storage/             better-sqlite3 + 26 migrations + 37 repos</span><br><span class="line">├── packages/llm-core/            Anthropic / OpenAI / Gemini / OpenAI-Compat</span><br><span class="line">├── packages/skill-engine/        自研 macro 模板 + world-info-activator</span><br><span class="line">├── packages/tavern-engine/       多 Agent 角色对话（director / character / summary）</span><br><span class="line">├── packages/auto-writer-engine/  4-Agent 写作流水线 + OOC-gate</span><br><span class="line">├── packages/research-core/       Tavily / Bing / SerpAPI + LLM fallback</span><br><span class="line">├── packages/review-engine/       5 维度审稿（人物 / 时间线 / 伏笔 / 世界观 / 语言）</span><br><span class="line">└── packages/editor/              TipTap 包装 + word-count + analysis-scheduler</span><br></pre></td></tr></table></figure>
 
 <p>构建依赖链：<code>shared → storage → 其它 packages → desktop</code>。</p>
 <h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Renderer (React + zustand + react-query)</span><br><span class="line">  ↓ window.inkforge.&lt;ns&gt;.&lt;method&gt;(input)        — preload 注入</span><br><span class="line">Preload</span><br><span class="line">  ↓ ipcRenderer.invoke(channel, input)          — 221 个 channel 之一</span><br><span class="line">Main IPC handler (apps/desktop/src/main/ipc/*.ts)</span><br><span class="line">  ↓ 调对应 service (50+ 个)</span><br><span class="line">Service (apps/desktop/src/main/services/*.ts)</span><br><span class="line">  ↓ 调 repo + llm-core + 各 engine</span><br><span class="line">Storage repo (packages/storage/src/repositories/*.ts)</span><br><span class="line">  ↓ better-sqlite3 prepared stmt</span><br><span class="line">SQLite (.inkforge.db) + 章节 .md 文件（磁盘）</span><br></pre></td></tr></table></figure>
@@ -134,15 +134,16 @@
 <p>流式调用走 async iterator + <code>BrowserWindow.webContents.send</code> 推 chunk 给 renderer，事件有 <code>phase</code> &#x2F; <code>chunk</code> &#x2F; <code>snapshot</code> &#x2F; <code>done</code> 四种。</p>
 <hr>
 <h2 id="4-五大引擎深挖"><a href="#4-五大引擎深挖" class="headerlink" title="4. 五大引擎深挖"></a>4. 五大引擎深挖</h2><h3 id="4-1-AutoWriter-Engine-——-4-Agent-流水线"><a href="#4-1-AutoWriter-Engine-——-4-Agent-流水线" class="headerlink" title="4.1 AutoWriter Engine —— 4-Agent 流水线"></a>4.1 AutoWriter Engine —— 4-Agent 流水线</h3><p>整章自动生成的核心。流水线如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">大纲 + 世界设定 + 章节目标</span><br><span class="line">      ↓</span><br><span class="line">┌─────────┐</span><br><span class="line">│ Planner │ ← 拆 beat 计划（章节 → 若干 beat）</span><br><span class="line">└─────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌─────────┐</span><br><span class="line">│ Writer  │ ← 每个 beat 生成段落</span><br><span class="line">└─────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌─────────┐</span><br><span class="line">│ Critic  │ ← 0~10 分打分，低于阈值退回 Writer 重写</span><br><span class="line">└─────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌─────────┐</span><br><span class="line">│ Editor  │ ← 全章抛光、连贯性、语言风格统一</span><br><span class="line">└─────────┘</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">大纲 + 世界设定 + 章节目标</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Planner  │ ← 拆 beat 计划（章节 → 若干 beat）</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Writer   │ ← 每个 beat 生成段落</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Critic   │ ← 0~10 分打分，低于阈值退回 Writer 重写</span><br><span class="line">└──────────┘</span><br><span class="line">      ↓</span><br><span class="line">┌──────────┐</span><br><span class="line">│ Reflector│ ← 全章结束后更新长期记忆（章节摘要 + 人物状态线索）</span><br><span class="line">└──────────┘</span><br></pre></td></tr></table></figure>
 
 <p><strong>关键设计</strong>：</p>
 <ul>
-<li><strong>OOC-gate</strong>：检测段落是否”出戏”（character 行为是否偏离 character card 设定）</li>
-<li><strong>Per-role binding</strong>：4 个 agent 可以<strong>分别绑定不同的 provider&#x2F;model&#x2F;temperature</strong>。比如 Planner 用 Claude Opus（推理强），Writer 用 GPT-4o（中文文笔好），Critic 用本地 deepseek-r1，Editor 再换一个 —— 一次写作可以混用 4 个模型</li>
+<li><strong>OOC-gate</strong>：检测段落是否”出戏”（character 行为是否偏离 character card 设定），与 Critic 并列工作</li>
+<li><strong>Per-role binding</strong>：4 个 agent 可以<strong>分别绑定不同的 provider&#x2F;model&#x2F;temperature</strong>。比如 Planner 用 Claude Opus（推理强），Writer 用 GPT-4o（中文文笔好），Critic 用本地 deepseek-r1，Reflector 再换一个 —— 一次写作可以混用 4 个模型</li>
 <li><strong>事件流</strong>：4 phase 之间通过 streaming event 反馈进度，UI 可以实时看到当前 agent 在工作</li>
+<li><strong>跨章节记忆</strong>：Reflector 的产物写入 <code>chapter_summaries</code> 表（v21 加的），下一章启动时 AutoWriter 会拼接全部前序章摘要 + 最近 1 章细节注入 prompt，解决长篇 OOC &#x2F; 世界观漂移</li>
 </ul>
-<p>之前那版我写成 Planner&#x2F;Researcher&#x2F;Writer&#x2F;Reviewer，<strong>错了</strong> —— 实际是 Planner&#x2F;Writer&#x2F;Critic&#x2F;Editor。</p>
+<p>之前那版我把第 4 个 agent 写成 Editor，<strong>错了</strong> —— 实际上是 <code>Reflector</code>（提纲师 &#x2F; 写手 &#x2F; 审稿员 &#x2F; 反思员），canonical 类型见 <code>packages/shared/src/domain.ts</code> <code>AutoWriterAgentRole</code>。这次专门读了代码核对。</p>
 <h3 id="4-2-Skill-Engine-——-自研-macro-模板"><a href="#4-2-Skill-Engine-——-自研-macro-模板" class="headerlink" title="4.2 Skill Engine —— 自研 macro 模板"></a>4.2 Skill Engine —— 自研 macro 模板</h3><p>之前说这是”类 Jinja”的模板语言。<strong>又错了</strong> —— 实际上是借鉴 SillyTavern macros 的自研系统：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#123;chapter.title&#125;&#125;            ← 上下文宏：取当前章节标题</span><br><span class="line">&#123;&#123;random:晴|阴|雨&#125;&#125;            ← 工具宏：随机选一</span><br><span class="line">&#123;&#123;roll:2d6&#125;&#125;                  ← 工具宏：骰 2d6</span><br><span class="line">&#123;&#123;time&#125;&#125;                     ← 工具宏：当前时间</span><br><span class="line">&#123;&#123;//这是注释&#125;&#125;                 ← 注释</span><br></pre></td></tr></table></figure>
 
@@ -404,7 +405,7 @@
 <li><strong>Conventional Commits 强制</strong>：下版本提交规范化，让 commit history 自己能讲故事</li>
 </ul>
 <hr>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>如果只看 30 条 commit message，会以为这是一个”小工具”。<br>但实际拆开 —— <strong>11 个 package、46 张表、221 个 IPC、4-Agent 写作管线、3 种联网搜索源、5 维度审稿、可编程 Skill、桌宠系统、内嵌终端、关系图可视化、26 步 migration 演进</strong> —— 这是一个完整的写作工作台。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>如果只看 30 条 commit message，会以为这是一个”小工具”。<br>但实际拆开 —— <strong>10 个项目（1 app + 9 package）、46 张表、221 个 IPC、4-Agent 写作管线、3 种联网搜索源、5 维度审稿、可编程 Skill、桌宠系统、内嵌终端、关系图可视化、26 步 migration 演进</strong> —— 这是一个完整的写作工作台。</p>
 <p>设计哲学还是那句：<strong>“用户的数据是用户的”</strong>。本地优先、文件可读、provider 自选、不绑定云、不上传任何东西。希望能成为认真写小说的人手里趁手的工具。</p>
 <p>如果你也在做类似项目，或对其中某个引擎实现感兴趣，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 找我聊。</p>
 <hr>

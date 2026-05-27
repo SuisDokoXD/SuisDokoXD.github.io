@@ -8,21 +8,22 @@
   style.textContent = `
     #bg-train {
       position: fixed;
-      bottom: 36px;
+      bottom: 12px;
       left: 100vw;
-      width: 260px;
-      height: 90px;
+      width: 240px;
+      height: 80px;
       pointer-events: none;
-      z-index: 1;
-      opacity: 0.55;
+      z-index: 9000;
+      opacity: 0.4;
       animation: train-pass 55s linear infinite;
       animation-delay: 6s;
       transition: opacity 0.4s;
+      mix-blend-mode: multiply;
     }
-    #bg-train svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
+    #bg-train svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
     @keyframes train-pass {
       0%   { transform: translateX(0); }
-      100% { transform: translateX(calc(-100vw - 280px)); }
+      100% { transform: translateX(calc(-100vw - 260px)); }
     }
 
     /* 烟雾向上飘升 */
@@ -45,8 +46,11 @@
       50% { opacity: 0.4; }
     }
 
-    /* 暗色模式下让车更亮一点 */
-    [data-theme="dark"] #bg-train { opacity: 0.7; }
+    /* 暗色模式下保持暗色融合 */
+    [data-theme="dark"] #bg-train {
+      opacity: 0.55;
+      mix-blend-mode: screen;
+    }
 
     /* 窄屏隐藏（手机上太挤） */
     @media (max-width: 768px) {

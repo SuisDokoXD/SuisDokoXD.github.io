@@ -7,17 +7,16 @@
   const style = document.createElement('style');
   style.textContent = `
     #bg-train {
-      position: fixed;
-      bottom: 12px;
+      position: absolute;
+      top: 70vh;
       left: 100vw;
       width: 240px;
       height: 80px;
       pointer-events: none;
-      z-index: 9000;
-      opacity: 0.4;
+      z-index: 2;
+      opacity: 0.55;
       animation: train-pass 55s linear infinite;
-      animation-delay: 6s;
-      transition: opacity 0.4s;
+      animation-delay: 4s;
       mix-blend-mode: multiply;
     }
     #bg-train svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
@@ -46,9 +45,9 @@
       50% { opacity: 0.4; }
     }
 
-    /* 暗色模式下保持暗色融合 */
+    /* 暗色模式：列车融入夜色 */
     [data-theme="dark"] #bg-train {
-      opacity: 0.55;
+      opacity: 0.65;
       mix-blend-mode: screen;
     }
 

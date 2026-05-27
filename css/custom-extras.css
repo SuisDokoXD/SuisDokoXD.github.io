@@ -1,0 +1,70 @@
+/* TL;DR / 文章摘要块 + 自定义 preloader Bocchi 主题 */
+
+/* ============ TL;DR 块 ============ */
+.post-tldr {
+  position: relative;
+  background: linear-gradient(135deg, #ffeef3 0%, #fff5f8 100%);
+  border-left: 4px solid #ff6b9d;
+  border-radius: 8px;
+  padding: 16px 22px 16px 56px;
+  margin: 0 0 28px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #5a4d52;
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.08);
+}
+.post-tldr::before {
+  content: 'TL;DR';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #ff6b9d;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.post-tldr p { margin: 0; }
+.post-tldr p + p { margin-top: 8px; }
+
+[data-theme="dark"] .post-tldr {
+  background: linear-gradient(135deg, #3a2a30 0%, #2a2226 100%);
+  border-left-color: #ff6b9d;
+  color: #d8c8ce;
+}
+
+/* ============ Preloader Bocchi 主题 ============ */
+/* 把 Butterfly 自带 loading 文字改成弹吉他的小动画 */
+#loading-box .loading-name {
+  display: none;
+}
+#loading-box::after {
+  content: '🎸';
+  display: block;
+  font-size: 56px;
+  margin-top: 14px;
+  animation: bocchi-strum 0.8s ease-in-out infinite alternate;
+  transform-origin: 50% 70%;
+}
+@keyframes bocchi-strum {
+  0%   { transform: rotate(-12deg) scale(1); }
+  100% { transform: rotate(12deg) scale(1.08); }
+}
+#loading-box .loading-text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  color: #c44a7c;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+#loading-box .loading-text::after {
+  content: 'tuning the guitar...';
+  animation: loading-text-fade 2s ease-in-out infinite;
+}
+@keyframes loading-text-fade {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}

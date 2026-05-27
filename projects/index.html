@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>项目 | Robot &amp; Code</title><meta name="author" content="SuisDokoXD"><meta name="copyright" content="SuisDokoXD"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="🤖 哨兵自主导航基于 Mid360 LiDAR 的 SLAM 导航开发。  硬件：Mid360 LiDAR + IMU 软件：ROS2 + FAST-LIO + Nav2 重点问题：复杂地形下的斜坡误识别        ✈️ 掌上飞机 ESP-Drone掌上四轴无人机副业项目。  MCU：ESP32-C3 传感器：IMU660RA (BMI270) 方案：MicroPython 路线">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>项目 | Robot &amp; Code</title><meta name="author" content="SuisDokoXD"><meta name="copyright" content="SuisDokoXD"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=".proj-grid {   display: grid;   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));   gap: 20px;   margin: 24px 0; } .proj-card {   background: var(--card-bg, #fff);   border-radius: 14px;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="项目">
 <meta property="og:url" content="https://suisdokoxd.github.io/projects/index.html">
 <meta property="og:site_name" content="Robot &amp; Code">
-<meta property="og:description" content="🤖 哨兵自主导航基于 Mid360 LiDAR 的 SLAM 导航开发。  硬件：Mid360 LiDAR + IMU 软件：ROS2 + FAST-LIO + Nav2 重点问题：复杂地形下的斜坡误识别        ✈️ 掌上飞机 ESP-Drone掌上四轴无人机副业项目。  MCU：ESP32-C3 传感器：IMU660RA (BMI270) 方案：MicroPython 路线">
+<meta property="og:description" content=".proj-grid {   display: grid;   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));   gap: 20px;   margin: 24px 0; } .proj-card {   background: var(--card-bg, #fff);   border-radius: 14px;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/SuisDokoXD.png">
-<meta property="article:published_time" content="2026-05-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-27T05:04:03.070Z">
+<meta property="article:published_time" content="2026-05-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-27T11:54:29.582Z">
 <meta property="article:author" content="SuisDokoXD">
 <meta property="article:tag" content="RoboMaster, SLAM, ROS2, 嵌入式, ESP32, Hexo">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,8 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><style>#waifu-tips{display:none !important;}</style><link rel="stylesheet" href="/css/banner-anim.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+}</script><style>#waifu-tips{display:none !important;}</style><link rel="stylesheet" href="/css/banner-anim.css"><link rel="stylesheet" href="/css/custom-extras.css"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Robot & Code" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
   const $loadingBox = document.getElementById('loading-box')
   const $body = document.body
   const preloader = {
@@ -174,46 +175,187 @@
     btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
     btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/SuisDokoXD.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/banner/bocchi-4.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Robot &amp; Code</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">项目</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><p style="text-align:center;">
-  <img src="/img/gif/bocchi-12.gif" alt="bocchi guitar" style="max-width:300px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/SuisDokoXD.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/now/"><i class="fa-fw fas fa-clock"></i><span> Now</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page type-projects" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/banner/bocchi-11.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Robot &amp; Code</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/now/"><i class="fa-fw fas fa-clock"></i><span> Now</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">项目</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.proj-card {
+  background: var(--card-bg, #fff);
+  border-radius: 14px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+.proj-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b9d, #c44a7c);
+}
+.proj-card.embedded::before { background: linear-gradient(90deg, #4fc3f7, #1976d2); }
+.proj-card.app::before { background: linear-gradient(90deg, #81c784, #388e3c); }
+.proj-card.archived::before { background: linear-gradient(90deg, #bbb, #888); }
+.proj-card h3 { margin: 0 0 8px; font-size: 18px; }
+.proj-card .proj-emoji { font-size: 24px; margin-right: 6px; }
+.proj-card .proj-meta {
+  font-size: 12px;
+  color: #888;
+  margin: 10px 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.proj-card .proj-meta span {
+  background: rgba(0,0,0,0.05);
+  padding: 2px 9px;
+  border-radius: 10px;
+}
+.proj-card .proj-desc { font-size: 14px; line-height: 1.65; color: #555; }
+.proj-card .proj-links {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+}
+.proj-card .proj-links a {
+  color: #c44a7c;
+  text-decoration: none;
+}
+.proj-card .proj-links a:hover { text-decoration: underline; }
+.proj-status {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.proj-status.active { background: #d4edda; color: #155724; }
+.proj-status.wip { background: #fff3cd; color: #856404; }
+.proj-status.archived { background: #e2e3e5; color: #383d41; }
+
+[data-theme="dark"] .proj-card { background: #2a2a2a; border-color: rgba(255,255,255,0.06); }
+[data-theme="dark"] .proj-card .proj-desc { color: #bbb; }
+[data-theme="dark"] .proj-card .proj-meta span { background: rgba(255,255,255,0.08); color: #ccc; }
+</style>
+
+<p style="text-align:center;">
+  <img src="/img/gif/bocchi-12.gif" alt="projects" style="max-width:240px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
 </p>
 
-<h2 id="🤖-哨兵自主导航"><a href="#🤖-哨兵自主导航" class="headerlink" title="🤖 哨兵自主导航"></a>🤖 哨兵自主导航</h2><p>基于 Mid360 LiDAR 的 SLAM 导航开发。</p>
-<ul>
-<li><strong>硬件</strong>：Mid360 LiDAR + IMU</li>
-<li><strong>软件</strong>：ROS2 + FAST-LIO + Nav2</li>
-<li><strong>重点问题</strong>：复杂地形下的斜坡误识别</li>
-</ul>
-<p style="text-align:center;margin: 24px 0;">
-  <img src="/img/gif/bocchi-3.gif" alt="hitori" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
+<blockquote>
+<p>在做、做过、想做的东西。点卡片去看代码或博文。</p>
+</blockquote>
+<div class="proj-grid">
 
-<h2 id="✈️-掌上飞机-ESP-Drone"><a href="#✈️-掌上飞机-ESP-Drone" class="headerlink" title="✈️ 掌上飞机 ESP-Drone"></a>✈️ 掌上飞机 ESP-Drone</h2><p>掌上四轴无人机副业项目。</p>
-<ul>
-<li><strong>MCU</strong>：ESP32-C3</li>
-<li><strong>传感器</strong>：IMU660RA (BMI270)</li>
-<li><strong>方案</strong>：MicroPython 路线，互补滤波 + WiFi 3D 可视化已跑通</li>
-</ul>
-<p style="text-align:center;margin: 24px 0;">
-  <img src="/img/gif/bocchi-5.gif" alt="hitori dance" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
+<div class="proj-card">
+  <span class="proj-status active">进行中</span>
+  <h3><span class="proj-emoji">🤖</span>哨兵自主导航</h3>
+  <div class="proj-meta">
+    <span>ROS2 Humble</span><span>Nav2</span><span>FAST-LIO</span><span>Mid360</span>
+  </div>
+  <div class="proj-desc">
+    RM2026 哨兵机器人的 SLAM + 自主导航栈。重点解决斜坡误识别为墙、复杂地形定位漂移。
+  </div>
+  <div class="proj-links">
+    <a href="/categories/SLAM/">📝 相关博文</a>
+  </div>
+</div>
 
-<h2 id="🪶-InkForge-墨炉"><a href="#🪶-InkForge-墨炉" class="headerlink" title="🪶 InkForge 墨炉"></a>🪶 InkForge 墨炉</h2><p>本地优先的 AI 协作式桌面写作台。所有数据不出本机。</p>
-<ul>
-<li><strong>技术栈</strong>：Electron 32 + React 18 + TipTap 2 + better-sqlite3</li>
-<li><strong>规模</strong>：10 个 monorepo 项目 &#x2F; 46 张表 &#x2F; 221 个 IPC channel &#x2F; v26 schema</li>
-<li><strong>核心引擎</strong>：AutoWriter 4-Agent (Planner → Writer → Critic → Reflector) · 自研 Skill 宏模板 · World Pack 卡牌化世界观 · Character Card CCv3</li>
-<li><strong>设计哲学</strong>：本地数据自治 + 多 LLM 自选 + 零遥测</li>
-<li><strong>开发实录</strong>：<a href="/posts/inkforge-devlog/">InkForge 开发实录：全景拆解</a></li>
-<li><strong>代码</strong>：<a target="_blank" rel="noopener" href="https://github.com/tompignofind123-cyber/inkforge">GitHub</a></li>
-</ul>
-<p style="text-align:center;margin: 24px 0;">
-  <img src="/img/gif/bocchi-10.gif" alt="bocchi" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
+<div class="proj-card embedded">
+  <span class="proj-status wip">原型</span>
+  <h3><span class="proj-emoji">✈️</span>掌上 ESP-Drone</h3>
+  <div class="proj-meta">
+    <span>ESP32-C3</span><span>BMI270</span><span>MicroPython</span><span>WiFi</span>
+  </div>
+  <div class="proj-desc">
+    巴掌大的开源四轴。IMU 全链路已通（互补滤波 + WiFi 3D 实时姿态可视化），下一步飞起来。
+  </div>
+  <div class="proj-links">
+    <a href="/categories/嵌入式/">📝 开发记录</a>
+  </div>
+</div>
+
+<div class="proj-card app">
+  <span class="proj-status active">进行中</span>
+  <h3><span class="proj-emoji">🪶</span>InkForge 墨炉</h3>
+  <div class="proj-meta">
+    <span>Electron 32</span><span>TipTap</span><span>SQLite</span><span>AI Agent</span>
+  </div>
+  <div class="proj-desc">
+    本地优先的 AI 协作式桌面写作台。4-Agent 写小说、World Pack 卡牌化世界观、零遥测，数据不出本机。
+  </div>
+  <div class="proj-links">
+    <a href="/posts/inkforge-devlog/">📝 开发实录</a>
+    <a href="https://github.com/tompignofind123-cyber/inkforge" target="_blank">GitHub →</a>
+  </div>
+</div>
+
+<div class="proj-card archived">
+  <span class="proj-status archived">已归档</span>
+  <h3><span class="proj-emoji">🎯</span>视觉自瞄</h3>
+  <div class="proj-meta">
+    <span>OpenCV</span><span>TensorRT</span><span>C++</span>
+  </div>
+  <div class="proj-desc">
+    早期 RM 装甲板识别 + 弹道解算，YOLO + PNP。已被新一代替代，但学到了实战调参手感。
+  </div>
+  <div class="proj-links">
+    <span style="color:#aaa;">代码私有</span>
+  </div>
+</div>
+
+<div class="proj-card embedded">
+  <span class="proj-status wip">玩具</span>
+  <h3><span class="proj-emoji">🎮</span>STM32 小游戏机</h3>
+  <div class="proj-meta">
+    <span>STM32F103</span><span>OLED</span><span>裸机 C</span>
+  </div>
+  <div class="proj-desc">
+    一块 0.96" OLED + 三个按键的迷你贪吃蛇。无 RTOS，学习中断和定时器的最好玩具。
+  </div>
+  <div class="proj-links">
+    <span style="color:#aaa;">未开源</span>
+  </div>
+</div>
+
+<div class="proj-card app">
+  <span class="proj-status active">长期</span>
+  <h3><span class="proj-emoji">📝</span>这个博客</h3>
+  <div class="proj-meta">
+    <span>Hexo</span><span>Butterfly</span><span>GitHub Pages</span>
+  </div>
+  <div class="proj-desc">
+    你正在看的这玩意。Butterfly 主题深度魔改，Bocchi the Rock 视觉，sakura + Live2D + 背景列车。
+  </div>
+  <div class="proj-links">
+    <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io" target="_blank">GitHub →</a>
+  </div>
+</div>
+
+</div>
 
 <hr>
+<h2 id="🎯-在排队的想法"><a href="#🎯-在排队的想法" class="headerlink" title="🎯 在排队的想法"></a>🎯 在排队的想法</h2><ul>
+<li><strong>机器人 Web 控制台</strong>：浏览器实时画 SLAM 地图 + WebSocket 双向通信</li>
+<li><strong>MicroPython 飞控固件</strong>：把掌上飞机经验抽成可复用模块</li>
+<li><strong>博客 AI 摘要</strong>：每篇文章自动 TL;DR + 关联推荐</li>
+<li><strong>Live2D 自训模型</strong>：拿 Bocchi 数据集训一个专属看板娘</li>
+</ul>
 <blockquote>
-<p>想看代码？右上角 GitHub 图标戳进去翻翻。</p>
+<p>想合作 &#x2F; 想看代码 &#x2F; 想吐槽？开个 <a target="_blank" rel="noopener" href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issue</a> 找我聊。</p>
 </blockquote>
 </div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://github.com/SuisDokoXD.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">SuisDokoXD</div><div class="author-info-description">SuisDokoXD 的折腾日记 - 机器人 / SLAM / 嵌入式 / AI 写作</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SuisDokoXD"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/SuisDokoXD" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:tompignofind123@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://space.bilibili.com/1518207174" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">👋 这里是 <b>SuisDokoXD</b> 的折腾日记。<br>
 机器人 · 嵌入式 · AI 写作 · 代码与故事<br>
@@ -224,14 +366,14 @@
 · <a href="/posts/inkforge-devlog/">InkForge 墨炉</a> AI 写作台 (beta.12)<br>
 <br>
 🔔 评论用 GitHub 登录即可。建议 → <a target="_blank" rel="noopener" href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">Issues</a>
-</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"><img src="/img/banner/bocchi-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"/></a><div class="content"><a class="title" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解">InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</a><time datetime="2026-05-26T10:00:00.000Z" title="发表于 2026-05-26 18:00:00">2026-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/hello/" title="博客上线了"><img src="/img/banner/bocchi-15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客上线了"/></a><div class="content"><a class="title" href="/posts/hello/" title="博客上线了">博客上线了</a><time datetime="2026-05-26T09:00:00.000Z" title="发表于 2026-05-26 17:00:00">2026-05-26</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"><img src="/img/banner/bocchi-11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"/></a><div class="content"><a class="title" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解">InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</a><time datetime="2026-05-26T10:00:00.000Z" title="发表于 2026-05-26 18:00:00">2026-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/hello/" title="博客上线了"><img src="/img/banner/bocchi-10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客上线了"/></a><div class="content"><a class="title" href="/posts/hello/" title="博客上线了">博客上线了</a><time datetime="2026-05-26T09:00:00.000Z" title="发表于 2026-05-26 17:00:00">2026-05-26</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
           </div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9D%82%E8%B0%88/"><span class="card-category-list-name">杂谈</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/"><span class="card-category-list-name">项目记录</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/devlog/" style="font-size: 1.1em; color: #999">devlog</a> <a href="/tags/Electron/" style="font-size: 1.1em; color: #999">Electron</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/SQLite/" style="font-size: 1.1em; color: #999">SQLite</a> <a href="/tags/AI-%E5%86%99%E4%BD%9C/" style="font-size: 1.1em; color: #999">AI 写作</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/TipTap/" style="font-size: 1.1em; color: #999">TipTap</a> <a href="/tags/monorepo/" style="font-size: 1.1em; color: #999">monorepo</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/monorepo/" style="font-size: 1.1em; color: #999">monorepo</a> <a href="/tags/SQLite/" style="font-size: 1.1em; color: #999">SQLite</a> <a href="/tags/devlog/" style="font-size: 1.1em; color: #999">devlog</a> <a href="/tags/Electron/" style="font-size: 1.1em; color: #999">Electron</a> <a href="/tags/TipTap/" style="font-size: 1.1em; color: #999">TipTap</a> <a href="/tags/AI-%E5%86%99%E4%BD%9C/" style="font-size: 1.1em; color: #999">AI 写作</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -250,4 +392,4 @@
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">3.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-27T10:59:46.450Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By SuisDokoXD</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><span style="opacity:0.7;">机器人不会自己跑起来，除非你写对了每一行代码 🎸</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script><script defer src="/js/effects.js"></script><script defer src="/js/bg-train.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="120,160,255" opacity="0.7" zIndex="-1" count="120" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜点什么呢..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">3.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-27T12:00:04.107Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By SuisDokoXD</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><span style="opacity:0.7;">机器人不会自己跑起来，除非你写对了每一行代码 🎸</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script><script defer src="/js/live2d-tips.js"></script><script defer src="/js/effects.js"></script><script defer src="/js/bg-train.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="120,160,255" opacity="0.7" zIndex="-1" count="120" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜点什么呢..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

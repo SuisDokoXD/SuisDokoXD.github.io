@@ -41,13 +41,27 @@
 #loading-box .loading-name {
   display: none;
 }
+/* 🎸 用 fixed 居中浮在全屏遮罩中央，脱离文档流——
+   否则它会以普通块占据 body 顶部高度，把整页顶下去形成"大额头"。
+   z-index 高于 spinner-box(1001)。 */
 #loading-box::after {
   content: '🎸';
-  display: block;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 56px;
+  height: 64px;
   font-size: 56px;
-  margin-top: 14px;
+  line-height: 64px;
+  text-align: center;
+  z-index: 1002;
   animation: bocchi-strum 0.8s ease-in-out infinite alternate;
   transform-origin: 50% 70%;
+}
+/* 加载完成后连同 🎸 一起隐藏（官方 .loaded 只管 .spinner-box） */
+#loading-box.loaded::after {
+  opacity: 0;
+  visibility: hidden;
 }
 @keyframes bocchi-strum {
   0%   { transform: rotate(-12deg) scale(1); }

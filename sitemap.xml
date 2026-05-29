@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://suisdokoxd.github.io/categories/index.html</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://suisdokoxd.github.io/tags/index.html</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://suisdokoxd.github.io/projects/index.html</loc>
     
     <lastmod>2026-05-27</lastmod>
@@ -74,6 +92,20 @@
 
   
   <url>
+    <loc>https://suisdokoxd.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suisdokoxd.github.io/tags/Hexo/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suisdokoxd.github.io/tags/Electron/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -122,31 +154,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://suisdokoxd.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suisdokoxd.github.io/tags/Hexo/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://suisdokoxd.github.io/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://suisdokoxd.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suisdokoxd.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
+    <loc>https://suisdokoxd.github.io/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

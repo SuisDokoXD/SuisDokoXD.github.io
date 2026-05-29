@@ -1,0 +1,53 @@
+/* ============================================================
+ * 苹果风切页过渡 —— 配合 butterfly pjax 无刷新切页使用。
+ *   · 主内容淡入 + 轻微上移
+ *   · 顶部 2px 渐变进度条
+ * 缓动统一用 iOS 导航/Sheet 常见的 cubic-bezier(0.32,0.72,0,1)，
+ * 「快进慢出」，收尾绵柔，营造丝滑质感。
+ * ============================================================ */
+
+/* -------- 主内容入场：淡入 + 轻微上移 -------- */
+@keyframes pjax-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#content-inner.pjax-enter {
+  animation: pjax-content-enter 0.42s cubic-bezier(0.32, 0.72, 0, 1) both;
+  will-change: opacity, transform;
+}
+
+/* -------- 顶部加载进度条 -------- */
+#pjax-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #ff6b9d, #ffa6c9);
+  box-shadow: 0 0 8px rgba(255, 107, 157, 0.6);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.3s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.25s ease;
+}
+
+#pjax-progress.active {
+  opacity: 1;
+}
+
+/* -------- 尊重系统「减少动态效果」 -------- */
+@media (prefers-reduced-motion: reduce) {
+  #content-inner.pjax-enter {
+    animation: none;
+  }
+  #pjax-progress {
+    display: none;
+  }
+}

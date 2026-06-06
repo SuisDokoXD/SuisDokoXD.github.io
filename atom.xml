@@ -12,27 +12,7 @@
   <title>
     <![CDATA[Robot & Code]]>
   </title>
-  <updated>2026-06-06T01:28:02.874Z</updated>
-  <entry>
-    <author>
-      <name>SuisDokoXD</name>
-    </author>
-    <category term="项目记录" scheme="https://suisdokoxd.github.io/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/"/>
-    <category term="Electron" scheme="https://suisdokoxd.github.io/tags/Electron/"/>
-    <category term="devlog" scheme="https://suisdokoxd.github.io/tags/devlog/"/>
-    <category term="周报" scheme="https://suisdokoxd.github.io/tags/%E5%91%A8%E6%8A%A5/"/>
-    <category term="inkforge" scheme="https://suisdokoxd.github.io/tags/inkforge/"/>
-    <category term="UI" scheme="https://suisdokoxd.github.io/tags/UI/"/>
-    <content>
-      <![CDATA[<h2 id="本周概览"><a href="#本周概览" class="headerlink" title="本周概览"></a>本周概览</h2><p>inkforge 这周一口气往前推了不少，主要是两块：skill 引擎从测试到交互链路补了一轮，UI 层在做动效和主题的统一。其他三个项目这周没动，精力都集中在 inkforge 上了。节奏上还算稳，没有特别鬼打墙的坑。</p><h2 id="各项目进展"><a href="#各项目进展" class="headerlink" title="各项目进展"></a>各项目进展</h2><h3 id="inkforge"><a href="#inkforge" class="headerlink" title="inkforge"></a>inkforge</h3><ul><li>skill 引擎这边把 template&#x2F;trigger-scheduler&#x2F;validate 几个模块的单测都补完了，顺手接上了 turbo test 跑 CI 流程。然后删掉了 runner 里无引用的老代码，校正了模板宏的注释，整体结构干净了一些。</li><li>交互链路上，执行 prompt 现在能按 UI 语言做本地化，SkillPage 的模板也支持了实时预览。还新增了 verify-skill 和 swap-sqlite-abi 两个脚本，做工具链上的补全。</li><li>UI 这边改动不小：对话框、吐司、列表全部接上了 AnimatedDialog 和 motion 动效，缩放时 backdrop-blur 会挂起避免掉帧。ActivityBar 换上了 lucide 的单色图标，加了空状态引导页面，浅色主题也做了适配。</li><li>配色上从之前的 amber 统一换成了系统蓝 accent，渲染层默认主题改为 light。桌宠那边把 4 个物种的 SVG 收敛成了单一 Lottie 吉祥物。</li><li>最后补了一次清理死代码的提交。</li></ul><h2 id="卡点与思考"><a href="#卡点与思考" class="headerlink" title="卡点与思考"></a>卡点与思考</h2><p>这次没什么特别卡的，UI 动效和主题切换的适配比想象中要顺畅。唯一值得记一下的是：把几个 SVG 物种合并成 Lottie 时，发现不同物种的动画帧率不太一致，最后统一用了 30fps 的导出设置，然后靠脚本动态调整播放速度来模拟不同步伐频率。算是个小 trick 吧。</p><h2 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h2><ul><li>进一步打磨 skill 引擎的异常处理和错误提示，把本地化覆盖到所有用户可见文案</li><li>UI 层开搞设置页面和插件管理，目前这两块还是空白</li><li>看看什么时候能给 inkforge 跑一个完整的端到端流程 demo</li></ul>]]>
-    </content>
-    <id>https://suisdokoxd.github.io/posts/week-23-devlog/</id>
-    <link href="https://suisdokoxd.github.io/posts/week-23-devlog/"/>
-    <published>2026-06-06T01:30:00.000Z</published>
-    <summary>本周聚焦 inkforge：skill 引擎补单测与交互链路、UI 动效与浅色主题统一、桌宠收敛为单一 Lottie。</summary>
-    <title>第 23 周 devlog</title>
-    <updated>2026-06-06T01:28:02.874Z</updated>
-  </entry>
+  <updated>2026-05-30T10:53:41.464Z</updated>
   <entry>
     <author>
       <name>SuisDokoXD</name>

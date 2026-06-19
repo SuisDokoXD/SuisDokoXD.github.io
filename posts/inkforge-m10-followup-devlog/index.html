@@ -1,0 +1,487 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地 | Robot &amp; Code</title><meta name="author" content="SuisDokoXD"><meta name="copyright" content="SuisDokoXD"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="承接 beta.19 进度同步，这一篇记录后续 M10 打磨：IPC 入参校验测试、World Pack 融合保存语义、输入防丢、状态计时器清理、动效与可访问性收口，以及当前验证结果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地">
+<meta property="og:url" content="https://suisdokoxd.github.io/posts/inkforge-m10-followup-devlog/index.html">
+<meta property="og:site_name" content="Robot &amp; Code">
+<meta property="og:description" content="承接 beta.19 进度同步，这一篇记录后续 M10 打磨：IPC 入参校验测试、World Pack 融合保存语义、输入防丢、状态计时器清理、动效与可访问性收口，以及当前验证结果。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://suisdokoxd.github.io/img/banner/bocchi-6.jpg">
+<meta property="article:published_time" content="2026-06-19T14:30:00.000Z">
+<meta property="article:modified_time" content="2026-06-19T04:28:05.767Z">
+<meta property="article:author" content="SuisDokoXD">
+<meta property="article:tag" content="AI 写作">
+<meta property="article:tag" content="Electron">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="SQLite">
+<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="UI&#x2F;UX">
+<meta property="article:tag" content="devlog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://suisdokoxd.github.io/img/banner/bocchi-6.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地",
+  "url": "https://suisdokoxd.github.io/posts/inkforge-m10-followup-devlog/",
+  "image": "https://suisdokoxd.github.io/img/banner/bocchi-6.jpg",
+  "datePublished": "2026-06-19T14:30:00.000Z",
+  "dateModified": "2026-06-19T04:28:05.767Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "SuisDokoXD",
+      "url": "https://github.com/SuisDokoXD"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://suisdokoxd.github.io/posts/inkforge-m10-followup-devlog/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#waifu-tips{display:none !important;}</style><link rel="stylesheet" href="/css/banner-anim.css"><link rel="stylesheet" href="/css/custom-extras.css"><link rel="stylesheet" href="/css/page-transition.css"><link rel="stylesheet" href="/css/tags-wall.css"><script src="/js/banner-random.js"></script><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Robot & Code" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/SuisDokoXD.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/now/"><i class="fa-fw fas fa-clock"></i><span> Now</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/banner/bocchi-6.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Robot &amp; Code</span></a><a class="nav-page-title" href="/"><span class="site-name">InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-microchip"></i><span> 项目</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 在听</span></a></li><li><a class="site-page child" href="/now/"><i class="fa-fw fas fa-clock"></i><span> Now</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-19T14:30:00.000Z" title="发表于 2026-06-19 22:30:00">2026-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-19T04:28:05.767Z" title="更新于 2026-06-19 12:28:05">2026-06-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/">项目记录</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>上一篇《<a href="/posts/inkforge-beta19-m10-devlog/">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</a>》写到 beta.19，并提到 6 月 18-19 日还有一批 M10 polish WIP 没完全收束。今天这篇就是把那部分继续往前推后的记录：不急着换版本号，先把已经暴露出来的隐患一个个按住。</p>
+</blockquote>
+<p>这次的关键词还是 M10：<strong>体验打磨、工程边界、数据可信、发布可靠性</strong>。</p>
+<h2 id="0-这次补上了什么"><a href="#0-这次补上了什么" class="headerlink" title="0. 这次补上了什么"></a>0. 这次补上了什么</h2><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>进展</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IPC 边界</td>
+<td>补齐 validation 测试，覆盖 settings、provider、review、world-pack、character、tavern 等高风险入口</td>
+</tr>
+<tr>
+<td>World Pack</td>
+<td>融合预览保存时不再二次调用模型，直接保存用户审核过的预览内容</td>
+</tr>
+<tr>
+<td>写作输入</td>
+<td>编辑器、章节缓存、世界观详情页继续加固，避免旧数据回流覆盖新输入</td>
+</tr>
+<tr>
+<td>状态反馈</td>
+<td>多处短状态提示改成可清理计时器，组件关闭或重开时不会被旧 timer 反向改状态</td>
+</tr>
+<tr>
+<td>UI 动效</td>
+<td>继续替换零散 Tailwind 动画类，统一走 motion token &#x2F; MotionSpinner，并照顾 reduced motion</td>
+</tr>
+<tr>
+<td>验证</td>
+<td>桌面 typecheck、根 typecheck、desktop build、desktop test、a11y 静态扫描、diff check 均通过过</td>
+</tr>
+</tbody></table>
+<p>上一篇已经讲过“为什么要把大纲页的正文生成职责收回 AI 写作页”。这一篇更偏工程收尾：功能看起来可能不大，但它们决定软件在真实使用中会不会突然让人失去信任。</p>
+<hr>
+<h2 id="1-IPC-validation-从“改了”变成“有测试守住”"><a href="#1-IPC-validation-从“改了”变成“有测试守住”" class="headerlink" title="1. IPC validation 从“改了”变成“有测试守住”"></a>1. IPC validation 从“改了”变成“有测试守住”</h2><p>Electron 的 renderer 到 main 之间，TypeScript 只能在开发时帮忙；真正运行时传进来的还是普通对象。上一轮已经把大量 <code>ipcMain.handle(... input: XxxInput)</code> 的入口改成 runtime parse，这一轮继续补回归测试。</p>
+<p>现在 validation 测试覆盖了几类最容易出事的边界：</p>
+<ul>
+<li><code>settings:set</code> 只允许已知设置项，并按每个 key 的真实类型解析。</li>
+<li>provider &#x2F; model 相关字段走白名单，不让任意字符串直接落到主进程逻辑里。</li>
+<li>review、world-pack、character、tavern 这些会读写内容或触发模型调用的入口，都有输入结构校验。</li>
+<li>静态扫描继续防止以后又把 IPC handler 写回裸 typed input 参数。</li>
+</ul>
+<p>这类测试不会让界面多一个按钮，但它会减少“以后改着改着又绕过解析层”的概率。</p>
+<p>我越来越觉得桌面 AI 工具里，IPC validation 不应该被当成安全附加项。只要主进程能碰文件、数据库、模型配置、导入导出，它就是产品可信度的一部分。</p>
+<h2 id="2-World-Pack-融合：保存的是用户看过的那一版"><a href="#2-World-Pack-融合：保存的是用户看过的那一版" class="headerlink" title="2. World Pack 融合：保存的是用户看过的那一版"></a>2. World Pack 融合：保存的是用户看过的那一版</h2><p>这次还修了一个语义上很重要的问题：World Pack 融合预览。</p>
+<p>之前的流程里，用户先生成融合预览，满意后再点“保存为新卡”。如果保存动作内部重新调用一次模型，那就会出现一个危险错位：</p>
+<blockquote>
+<p>用户审核的是 A，最后落库的可能是 B。</p>
+</blockquote>
+<p>这对写作设定工具很致命。世界观卡不是临时推荐语，它会进入后续写作参考。如果用户已经看过并确认某一版内容，保存就应该保存这一版，而不是再让模型自由发挥一次。</p>
+<p>现在保存语义被收紧：</p>
+<ul>
+<li>预览阶段生成 <code>suggestion</code>。</li>
+<li>用户点击保存时，把这份 <code>suggestion</code> 作为输入传回主进程。</li>
+<li>主进程 validation 校验这份 reviewed suggestion 的结构。</li>
+<li>service 直接把 reviewed suggestion 持久化。</li>
+<li>插入 pack 和 entries 放在同一笔事务里完成。</li>
+</ul>
+<p>这样之后，World Pack 融合更像一个可审核的创作工具，而不是“看一版、存另一版”的黑盒。</p>
+<hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-3.gif" alt="bocchi working" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
+<h2 id="3-继续处理“输入后消失，刷新后又出现”"><a href="#3-继续处理“输入后消失，刷新后又出现”" class="headerlink" title="3. 继续处理“输入后消失，刷新后又出现”"></a>3. 继续处理“输入后消失，刷新后又出现”</h2><p>上一篇提到过这个问题：输入文字后内容像是消失了，但刷新后又出现。这个现象很迷惑，因为它不是单纯“保存失败”，而是<strong>保存成功后，旧数据又回流覆盖了本地新状态</strong>。</p>
+<p>这次继续把防线补细：</p>
+<ul>
+<li><code>NovelEditor</code> 跳过编辑器自己刚发出的 <code>onChange</code> 回流，避免 value 同步又把正在输入的内容 <code>setContent</code> 回旧版本。</li>
+<li>中文 IME 合成过程中不做外部 <code>setContent</code>，减少输入法过程里的误覆盖。</li>
+<li><code>EditorPane</code> 保存成功、快照恢复后同步更新 <code>chapter-content</code> 查询缓存，不等父级刷新拿旧正文回来。</li>
+<li>世界观详情页用 loaded entry id、dirty snapshot 和 <code>updatedAt</code> 判断外部数据是不是过期，不轻易覆盖正在编辑的条目。</li>
+</ul>
+<p>写作软件的底线不是“功能多”，而是“用户打进去的字不能莫名其妙丢”。哪怕最后发现数据库里还在，只要界面上突然消失，用户都会先怀疑这个工具不可靠。</p>
+<p>这类问题不适合靠“刷新一下就好了”来解释。程序应该主动分清楚：</p>
+<ul>
+<li>这是用户刚输入的本地状态；</li>
+<li>这是刚保存成功的内容；</li>
+<li>这是查询缓存里上一次的旧内容；</li>
+<li>这是父级刷新带回来的外部数据。</li>
+</ul>
+<p>只有这几层不互相踩，编辑体验才会稳定。</p>
+<h2 id="4-状态计时器不能散落在各处"><a href="#4-状态计时器不能散落在各处" class="headerlink" title="4. 状态计时器不能散落在各处"></a>4. 状态计时器不能散落在各处</h2><p>M10 里很大一部分改动都跟“短状态反馈”有关。</p>
+<p>很多界面会有这样的代码：成功后显示“已保存”，然后 <code>setTimeout</code> 两秒后消失。单独看没问题，组件多起来就会出事：</p>
+<ul>
+<li>弹窗关了，timer 还在后台跑。</li>
+<li>用户马上重新打开，旧 timer 把新状态清掉。</li>
+<li>失败信息还没看清就被成功状态覆盖。</li>
+<li>组件卸载后继续 set state，虽然不一定立刻崩，但行为很脏。</li>
+</ul>
+<p>这次继续收了几条典型路径：</p>
+<ul>
+<li><code>WorldPackEditDialog</code> 的保存状态从裸 <code>setTimeout</code> 改成可清理的 timer helper。</li>
+<li>封面上传开始时进入保存中，成功后短暂显示已保存，失败回到空闲。</li>
+<li><code>PackSlotPanel</code> 复用 <code>useTimedStatus</code>，移除、启停参考、调整顺序都有短暂成功提示；错误保留，并用 <code>role=&quot;alert&quot;</code>。</li>
+<li><code>ReviewReportPanel</code> 关闭修复预览后延迟清空内容的 timer 可以取消，避免旧关闭动画清掉新预览。</li>
+<li>桌宠的临时状态恢复、每日达成延迟标记、双击和长按 timer 都在禁用或卸载时清理。</li>
+</ul>
+<p>这些都不是大功能，但它们会让软件少很多“刚才明明点了，怎么状态又变了”的错觉。</p>
+<h2 id="5-动效继续统一，但不追求花"><a href="#5-动效继续统一，但不追求花" class="headerlink" title="5. 动效继续统一，但不追求花"></a>5. 动效继续统一，但不追求花</h2><p>之前很多地方直接用了 <code>animate-spin</code>、<code>animate-pulse</code>、<code>animate-bounce</code>、<code>transition-all</code>。这些类方便，但在一个大型桌面应用里会逐渐失控：每个组件转法不一样、禁用动效不好处理、按钮宽度容易抖、状态切换也不稳定。</p>
+<p>现在继续往统一方向收：</p>
+<ul>
+<li>loading 用 <code>MotionSpinner</code> &#x2F; <code>MotionSpin</code>。</li>
+<li>进入、退出、hover、tap 尽量走 <code>motion-tokens</code>。</li>
+<li>reduced motion 下少动或不动。</li>
+<li>用稳定尺寸和明确 disabled state 减少布局跳动。</li>
+<li>icon-only 按钮补 <code>aria-label</code> &#x2F; <code>title</code>。</li>
+</ul>
+<p>这个阶段的目标不是让 InkForge “更炫”，而是让它更安静、更稳定、更像一个可以长时间使用的写作工作台。</p>
+<hr>
+<h2 id="6-当前验证状态"><a href="#6-当前验证状态" class="headerlink" title="6. 当前验证状态"></a>6. 当前验证状态</h2><p>这轮改动在本地跑过多组检查。比较关键的结果：</p>
+<ul>
+<li><code>pnpm --filter @inkforge/desktop typecheck</code>：通过。</li>
+<li><code>pnpm typecheck</code>：通过。</li>
+<li><code>pnpm --filter @inkforge/desktop build</code>：通过。</li>
+<li><code>pnpm --filter @inkforge/desktop test</code>：通过，桌面端单测覆盖了新增 validation 和世界图逻辑等路径。</li>
+<li>静态可访问性扫描：没有报告具体问题。</li>
+<li><code>git diff --check</code>：通过。</li>
+<li>renderer 旧动效类扫描：没有发现本轮关注的 <code>animate-spin</code> &#x2F; <code>transition-all</code> 回退。</li>
+<li>dev server 错误日志为空，5173 本地开发服务正常。</li>
+</ul>
+<p>另外，SQLite 当前在 Electron ABI，适合跑本地桌面开发版；如果要跑某些 Node 侧 verify 脚本，需要先切回 Node ABI。这点已经记录成项目经验，避免把 native addon ABI 问题误判成 TypeScript 回归。</p>
+<h2 id="7-还没有结束"><a href="#7-还没有结束" class="headerlink" title="7. 还没有结束"></a>7. 还没有结束</h2><p>M10 还不是“所有 polish 都完成”。现在本地工作区仍然有大量改动，后面更适合按主题拆分：</p>
+<ul>
+<li>IPC validation 模块继续补更细的边界单测。</li>
+<li>EditorPane &#x2F; SkillPage 这类巨型 UI 文件可以继续拆，但需要更严格的视觉回归检查。</li>
+<li>World Graph 还可以补图例、批量关系操作、结构摘要导出，以及和 AI 写作上下文联动。</li>
+<li>World Pack 融合、角色卡、酒馆、审稿这些高频路径还可以继续统一状态反馈和错误恢复。</li>
+<li>0.1.x Windows 构建仍未签名，正式分发前还需要解决代码签名。</li>
+</ul>
+<p>但至少这一轮之后，上一篇里提到的“还有一批本地 WIP”已经有一部分从 WIP 变成了可验证的改动。</p>
+<hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-11.gif" alt="bocchi reflection" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>InkForge 现在最耗时间的已经不是“把一个功能做出来”，而是把功能之间的边界、状态、反馈、保存语义和验证链路逐渐磨平。</p>
+<p>AI 写作工具尤其不能只追求生成能力。真正长期使用时，用户更在意的是：</p>
+<ul>
+<li>我写下的字会不会丢；</li>
+<li>我确认过的设定会不会被偷偷换掉；</li>
+<li>按钮点下去之后软件到底有没有在做事；</li>
+<li>错误发生时我能不能知道原因和下一步；</li>
+<li>本地数据是不是还在我自己手里。</li>
+</ul>
+<p>所以这一轮 M10 还是那句话：不急着宣布大版本，先把真实使用里会刺人的地方继续拔掉。</p>
+<p><strong>当前版本</strong>：v0.1.0-beta.19<br><strong>当前阶段</strong>：M10，体验打磨 + 工程边界 + 发布可靠性<br><strong>最新已提交基线</strong>：4409968 (2026-06-17)<br><strong>备注</strong>：本文记录 beta.19 之后的本地 M10 收口进展，后续还会继续按主题拆分提交</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/SuisDokoXD">SuisDokoXD</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://suisdokoxd.github.io/posts/inkforge-m10-followup-devlog/">https://suisdokoxd.github.io/posts/inkforge-m10-followup-devlog/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://SuisDokoXD.github.io" target="_blank">Robot & Code</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Electron/">Electron</a><a class="post-meta__tags" href="/tags/React/">React</a><a class="post-meta__tags" href="/tags/TypeScript/">TypeScript</a><a class="post-meta__tags" href="/tags/AI-%E5%86%99%E4%BD%9C/">AI 写作</a><a class="post-meta__tags" href="/tags/SQLite/">SQLite</a><a class="post-meta__tags" href="/tags/UI-UX/">UI/UX</a><a class="post-meta__tags" href="/tags/devlog/">devlog</a></div><div class="post-share"><div class="social-share" data-image="/img/banner/bocchi-6.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/inkforge-beta19-m10-devlog/" title="InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳"><img class="cover" src="/img/banner/bocchi-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</div></div><div class="info-2"><div class="info-item-1"> 上两篇《InkForge 开发实录》和《InkForge 打磨记》停在 beta.12。那时 InkForge 已经像一个完整工具了，但还没有真正经受”拿来写长篇”的压力测试。最近这一段主要不是堆功能，而是把最容易让作者失去信任的地方逐个补上：重复章节、截断正文、保存后旧内容回灌、IPC 边界、打包验证，以及一大批小而烦人的 UI 反馈问题。  如果说 beta.12 是”功能闭环”，那 beta.19 更接近”可以开始认真用”。 0. 这一轮先看结果   方向 更新    当前版本 v0.1.0-beta.19   写作链路 修复章纲重复、正文截断、重写后旧正文、未绑定章节；AI 写作页正式承接正文生成   工程安全 IPC 入参运行时校验、外链打开集中到主进程、终端生产环境门禁、更多主进程&#x2F;service 测试   发布验证 Windows unpacked &#x2F; setup &#x2F; portable 验证，GitHub Actions 覆盖 verify、desktop e2e、packaged UI smoke   数据安全 新增项目备份包导出&...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/inkforge-beta19-m10-devlog/" title="InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳"><img class="cover" src="/img/banner/bocchi-1.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-19</div><div class="info-item-2">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</div></div><div class="info-2"><div class="info-item-1"> 上两篇《InkForge 开发实录》和《InkForge 打磨记》停在 beta.12。那时 InkForge 已经像一个完整工具了，但还没有真正经受”拿来写长篇”的压力测试。最近这一段主要不是堆功能，而是把最容易让作者失去信任的地方逐个补上：重复章节、截断正文、保存后旧内容回灌、IPC 边界、打包验证，以及一大批小而烦人的 UI 反馈问题。  如果说 beta.12 是”功能闭环”，那 beta.19 更接近”可以开始认真用”。 0. 这一轮先看结果   方向 更新    当前版本 v0.1.0-beta.19   写作链路 修复章纲重复、正文截断、重写后旧正文、未绑定章节；AI 写作页正式承接正文生成   工程安全 IPC 入参运行时校验、外链打开集中到主进程、终端生产环境门禁、更多主进程&#x2F;service 测试   发布验证 Windows unpacked &#x2F; setup &#x2F; portable 验证，GitHub Actions 覆盖 verify、desktop e2e、packaged UI smoke   数据安全 新增项目备份包导出&...</div></div></div></a><a class="pagination-related" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"><img class="cover" src="/img/banner/bocchi-12.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-26</div><div class="info-item-2">InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</div></div><div class="info-2"><div class="info-item-1"> 之前发过一版基于 commit history 的总结，回看发现严重低估了项目规模 —— commit message 太省，体现不出实际的代码量。这一版直接读代码重写，更接近项目的真实模样。  0. 一个数字开头的项目体检   维度 实际规模    Monorepo 项目 10 个（1 个 app + 9 个 package）   数据库 migration v1 → v26   数据库表 46 张   IPC channel 221 个   Main 进程 service 50+ 个   Storage repository 37 个   Renderer 页面 13 个   组件目录 &#x2F; 单文件组件 17 个目录 + 29 个顶级组件   Zustand store 3 个（app &#x2F; bookshelf &#x2F; companion）   i18n zh &#x2F; en &#x2F; ja   这不是一周末敲出来的小玩具 —— 这是一个功能闭环的中等规模 Electron 应用。  1. 项目是什么InkForge 是一个本地优先的 AI 小...</div></div></div></a><a class="pagination-related" href="/posts/inkforge-polish-devlog/" title="InkForge 打磨记：从「能用」到「顺手」的一次 UI&#x2F;UX 收口"><img class="cover" src="/img/banner/bocchi-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-30</div><div class="info-item-2">InkForge 打磨记：从「能用」到「顺手」的一次 UI&#x2F;UX 收口</div></div><div class="info-2"><div class="info-item-1"> 上一篇《InkForge 开发实录》把引擎、数据、IPC 全景拆了一遍。这一篇相反——没有任何新功能，全是”看着难受所以动手改”的细节打磨。功能闭环之后，决定一个工具用着舒不舒服的，往往就是这些不起眼的地方。  0. 为什么做这一轮beta.12 之后，InkForge 该有的都有了。但真正每天用，几个地方一直硌得慌：  左侧导航栏一排彩色 emoji，和干净的蓝灰主界面凑在一起，像两个设计师打架； 切到白色主题，顶部标题栏还是黑的； 新建项目第一眼，编辑区一行灰字飘在大片空白里，不知道下一步干嘛； 桌宠是纯手写 SVG 画的，怎么看怎么丑； 窗口一拖拽缩放就卡顿掉帧。  这次就专门收这些口。  1. 图标系统：彩色 emoji → lucide 单色最显眼的”不协调”来源：ActivityBar 用 emoji 当导航图标（✍🧩👥🎭🌍…）。emoji 由系统字体渲染，颜色、风格、基线全不可控，和系统蓝 + 灰阶的整体调性完全打架。 换成 lucide-react 单色线性图标，13 个主视图各配一个语义图标： 123写作=Feather  大纲=ListTree  S...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://github.com/SuisDokoXD.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">SuisDokoXD</div><div class="author-info-description">SuisDokoXD 的折腾日记 - 机器人 / SLAM / 嵌入式 / AI 写作</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SuisDokoXD"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/SuisDokoXD" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:tompignofind123@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://space.bilibili.com/1518207174" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">👋 这里是 <b>SuisDokoXD</b> 的折腾日记。<br>
+机器人 · 嵌入式 · AI 写作 · 代码与故事<br>
+<br>
+📌 <b>当前在搞</b><br>
+· 哨兵 SLAM 斜坡误识别<br>
+· 掌上飞机 ESP-Drone 姿态控制<br>
+· <a href="/posts/inkforge-devlog/">InkForge 墨炉</a> AI 写作台 (beta.12)<br>
+<br>
+🔔 评论用 GitHub 登录即可。建议 → <a target="_blank" rel="noopener" href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">Issues</a>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E8%BF%99%E6%AC%A1%E8%A1%A5%E4%B8%8A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">0. 这次补上了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-IPC-validation-%E4%BB%8E%E2%80%9C%E6%94%B9%E4%BA%86%E2%80%9D%E5%8F%98%E6%88%90%E2%80%9C%E6%9C%89%E6%B5%8B%E8%AF%95%E5%AE%88%E4%BD%8F%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">1. IPC validation 从“改了”变成“有测试守住”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-World-Pack-%E8%9E%8D%E5%90%88%EF%BC%9A%E4%BF%9D%E5%AD%98%E7%9A%84%E6%98%AF%E7%94%A8%E6%88%B7%E7%9C%8B%E8%BF%87%E7%9A%84%E9%82%A3%E4%B8%80%E7%89%88"><span class="toc-number">3.</span> <span class="toc-text">2. World Pack 融合：保存的是用户看过的那一版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BB%A7%E7%BB%AD%E5%A4%84%E7%90%86%E2%80%9C%E8%BE%93%E5%85%A5%E5%90%8E%E6%B6%88%E5%A4%B1%EF%BC%8C%E5%88%B7%E6%96%B0%E5%90%8E%E5%8F%88%E5%87%BA%E7%8E%B0%E2%80%9D"><span class="toc-number">4.</span> <span class="toc-text">3. 继续处理“输入后消失，刷新后又出现”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%8A%B6%E6%80%81%E8%AE%A1%E6%97%B6%E5%99%A8%E4%B8%8D%E8%83%BD%E6%95%A3%E8%90%BD%E5%9C%A8%E5%90%84%E5%A4%84"><span class="toc-number">5.</span> <span class="toc-text">4. 状态计时器不能散落在各处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8A%A8%E6%95%88%E7%BB%A7%E7%BB%AD%E7%BB%9F%E4%B8%80%EF%BC%8C%E4%BD%86%E4%B8%8D%E8%BF%BD%E6%B1%82%E8%8A%B1"><span class="toc-number">6.</span> <span class="toc-text">5. 动效继续统一，但不追求花</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BD%93%E5%89%8D%E9%AA%8C%E8%AF%81%E7%8A%B6%E6%80%81"><span class="toc-number">7.</span> <span class="toc-text">6. 当前验证状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%BF%98%E6%B2%A1%E6%9C%89%E7%BB%93%E6%9D%9F"><span class="toc-number">8.</span> <span class="toc-text">7. 还没有结束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">9.</span> <span class="toc-text">写在最后</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-m10-followup-devlog/" title="InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地"><img src="/img/banner/bocchi-6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地"/></a><div class="content"><a class="title" href="/posts/inkforge-m10-followup-devlog/" title="InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地">InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地</a><time datetime="2026-06-19T14:30:00.000Z" title="发表于 2026-06-19 22:30:00">2026-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-beta19-m10-devlog/" title="InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳"><img src="/img/banner/bocchi-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳"/></a><div class="content"><a class="title" href="/posts/inkforge-beta19-m10-devlog/" title="InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</a><time datetime="2026-06-19T04:30:00.000Z" title="发表于 2026-06-19 12:30:00">2026-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-polish-devlog/" title="InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口"><img src="/img/banner/bocchi-4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口"/></a><div class="content"><a class="title" href="/posts/inkforge-polish-devlog/" title="InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口">InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口</a><time datetime="2026-05-30T10:00:00.000Z" title="发表于 2026-05-30 18:00:00">2026-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"><img src="/img/banner/bocchi-12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解"/></a><div class="content"><a class="title" href="/posts/inkforge-devlog/" title="InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解">InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</a><time datetime="2026-05-26T10:00:00.000Z" title="发表于 2026-05-26 18:00:00">2026-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/hello/" title="博客上线了"><img src="/img/banner/bocchi-10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客上线了"/></a><div class="content"><a class="title" href="/posts/hello/" title="博客上线了">博客上线了</a><time datetime="2026-05-26T09:00:00.000Z" title="发表于 2026-05-26 17:00:00">2026-05-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By SuisDokoXD</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><span style="opacity:0.7;">机器人不会自己跑起来，除非你写对了每一行代码 🎸</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark_dimmed' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'SuisDokoXD/SuisDokoXD.github.io',
+      'data-repo-id': 'R_kgDOSoGR2A',
+      'data-category-id': 'DIC_kwDOSoGR2M4C93s9',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script><script defer src="/js/live2d-tips.js"></script><script defer src="/js/effects.js"></script><script defer src="/js/bg-train.js"></script><script defer src="/js/page-transition.js"></script><script defer src="/js/tags-wall.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="/js/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="120,160,255" opacity="0.7" zIndex="-1" count="120" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜点什么呢..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

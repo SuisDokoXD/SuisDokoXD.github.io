@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客上线了</title>
-    <url>/posts/hello/</url>
-    <content><![CDATA[<h2 id="终于把博客搭起来了"><a href="#终于把博客搭起来了" class="headerlink" title="终于把博客搭起来了"></a>终于把博客搭起来了</h2><p>折腾了不到一小时，从零到上线。技术栈也没什么花哨的：</p>
-<ul>
-<li><strong>生成器</strong>：Hexo 7.x</li>
-<li><strong>主题</strong>：<a href="https://butterfly.js.org/">Butterfly</a> (27k+ star，国产主题之光)</li>
-<li><strong>部署</strong>：GitHub Pages</li>
-<li><strong>域名</strong>：先用 <code>suisdokoxd.github.io</code>，后面可能换 <code>.me</code></li>
-</ul>
-<h2 id="这个博客会写什么"><a href="#这个博客会写什么" class="headerlink" title="这个博客会写什么"></a>这个博客会写什么</h2><p>主要是技术向，预计的几个方向：</p>
-<h3 id="🤖-哨兵导航相关"><a href="#🤖-哨兵导航相关" class="headerlink" title="🤖 哨兵导航相关"></a>🤖 哨兵导航相关</h3><ul>
-<li>Mid360 LiDAR + FAST-LIO 调参经验</li>
-<li>ROS2 Nav2 在 RM 赛场的实战</li>
-<li>斜坡地形误识别的排查全过程（这是当前最头疼的）</li>
-<li>TF 树 &#x2F; costmap &#x2F; behavior tree 笔记</li>
-</ul>
-<h3 id="✈️-嵌入式开发"><a href="#✈️-嵌入式开发" class="headerlink" title="✈️ 嵌入式开发"></a>✈️ 嵌入式开发</h3><ul>
-<li>ESP32-C3 + MicroPython 路线避坑</li>
-<li>IMU 数据融合（互补滤波 &#x2F; EKF &#x2F; 卡尔曼）</li>
-<li>掌上飞机从 0 到能飞的全记录</li>
-</ul>
-<h3 id="🛠️-工具链"><a href="#🛠️-工具链" class="headerlink" title="🛠️ 工具链"></a>🛠️ 工具链</h3><ul>
-<li>Claude Code &#x2F; Cursor 工作流</li>
-<li>Linux 开发环境配置</li>
-<li>偶尔写点小工具的源码解读</li>
-</ul>
-<h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><p>三个原因：</p>
-<ol>
-<li><strong>给未来的自己看</strong>。调试机器人时踩的每一个坑，过几个月就忘了，写下来比记在脑子里靠谱</li>
-<li><strong>强迫自己想清楚</strong>。能写明白才算真懂</li>
-<li><strong>认识更多折腾机器人的朋友</strong>。RM 圈子不大，希望能交到同好</li>
-</ol>
-<h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>如果你也是 RM 选手、嵌入式爱好者、或者只是路过的同学，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 留言聊聊。</p>
-<p>下篇文章应该会是 <strong>“哨兵 SLAM 斜坡误识别问题排查全记录”</strong> —— 还在跟这个 bug 死磕，磕完就来更新。</p>
-<blockquote>
-<p>“机器人不会自己跑起来，除非你写对了每一行代码。”</p>
-</blockquote>
-<p style="text-align:center;margin-top:40px;">
-  <img src="/img/gif/bocchi-4.gif" alt="thumbs up" style="max-width:240px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
-</p>]]></content>
-      <categories>
-        <category>杂谈</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>InkForge 开发实录：一个本地优先 AI 小说写作工作台的全景拆解</title>
     <url>/posts/inkforge-devlog/</url>
     <content><![CDATA[<blockquote>
@@ -439,6 +390,352 @@
       </tags>
   </entry>
   <entry>
+    <title>博客上线了</title>
+    <url>/posts/hello/</url>
+    <content><![CDATA[<h2 id="终于把博客搭起来了"><a href="#终于把博客搭起来了" class="headerlink" title="终于把博客搭起来了"></a>终于把博客搭起来了</h2><p>折腾了不到一小时，从零到上线。技术栈也没什么花哨的：</p>
+<ul>
+<li><strong>生成器</strong>：Hexo 7.x</li>
+<li><strong>主题</strong>：<a href="https://butterfly.js.org/">Butterfly</a> (27k+ star，国产主题之光)</li>
+<li><strong>部署</strong>：GitHub Pages</li>
+<li><strong>域名</strong>：先用 <code>suisdokoxd.github.io</code>，后面可能换 <code>.me</code></li>
+</ul>
+<h2 id="这个博客会写什么"><a href="#这个博客会写什么" class="headerlink" title="这个博客会写什么"></a>这个博客会写什么</h2><p>主要是技术向，预计的几个方向：</p>
+<h3 id="🤖-哨兵导航相关"><a href="#🤖-哨兵导航相关" class="headerlink" title="🤖 哨兵导航相关"></a>🤖 哨兵导航相关</h3><ul>
+<li>Mid360 LiDAR + FAST-LIO 调参经验</li>
+<li>ROS2 Nav2 在 RM 赛场的实战</li>
+<li>斜坡地形误识别的排查全过程（这是当前最头疼的）</li>
+<li>TF 树 &#x2F; costmap &#x2F; behavior tree 笔记</li>
+</ul>
+<h3 id="✈️-嵌入式开发"><a href="#✈️-嵌入式开发" class="headerlink" title="✈️ 嵌入式开发"></a>✈️ 嵌入式开发</h3><ul>
+<li>ESP32-C3 + MicroPython 路线避坑</li>
+<li>IMU 数据融合（互补滤波 &#x2F; EKF &#x2F; 卡尔曼）</li>
+<li>掌上飞机从 0 到能飞的全记录</li>
+</ul>
+<h3 id="🛠️-工具链"><a href="#🛠️-工具链" class="headerlink" title="🛠️ 工具链"></a>🛠️ 工具链</h3><ul>
+<li>Claude Code &#x2F; Cursor 工作流</li>
+<li>Linux 开发环境配置</li>
+<li>偶尔写点小工具的源码解读</li>
+</ul>
+<h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><p>三个原因：</p>
+<ol>
+<li><strong>给未来的自己看</strong>。调试机器人时踩的每一个坑，过几个月就忘了，写下来比记在脑子里靠谱</li>
+<li><strong>强迫自己想清楚</strong>。能写明白才算真懂</li>
+<li><strong>认识更多折腾机器人的朋友</strong>。RM 圈子不大，希望能交到同好</li>
+</ol>
+<h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>如果你也是 RM 选手、嵌入式爱好者、或者只是路过的同学，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 留言聊聊。</p>
+<p>下篇文章应该会是 <strong>“哨兵 SLAM 斜坡误识别问题排查全记录”</strong> —— 还在跟这个 bug 死磕，磕完就来更新。</p>
+<blockquote>
+<p>“机器人不会自己跑起来，除非你写对了每一行代码。”</p>
+</blockquote>
+<p style="text-align:center;margin-top:40px;">
+  <img src="/img/gif/bocchi-4.gif" alt="thumbs up" style="max-width:240px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);">
+</p>]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口</title>
+    <url>/posts/inkforge-polish-devlog/</url>
+    <content><![CDATA[<blockquote>
+<p>上一篇《<a href="/posts/inkforge-devlog/">InkForge 开发实录</a>》把引擎、数据、IPC 全景拆了一遍。这一篇相反——<strong>没有任何新功能</strong>，全是”看着难受所以动手改”的细节打磨。功能闭环之后，决定一个工具用着舒不舒服的，往往就是这些不起眼的地方。</p>
+</blockquote>
+<h2 id="0-为什么做这一轮"><a href="#0-为什么做这一轮" class="headerlink" title="0. 为什么做这一轮"></a>0. 为什么做这一轮</h2><p>beta.12 之后，InkForge 该有的都有了。但真正每天用，几个地方一直硌得慌：</p>
+<ul>
+<li>左侧导航栏一排<strong>彩色 emoji</strong>，和干净的蓝灰主界面凑在一起，像两个设计师打架；</li>
+<li>切到白色主题，顶部标题栏<strong>还是黑的</strong>；</li>
+<li>新建项目第一眼，编辑区<strong>一行灰字飘在大片空白里</strong>，不知道下一步干嘛；</li>
+<li>桌宠是纯手写 SVG 画的，<strong>怎么看怎么丑</strong>；</li>
+<li>窗口一拖拽缩放就<strong>卡顿掉帧</strong>。</li>
+</ul>
+<p>这次就专门收这些口。</p>
+<hr>
+<h2 id="1-图标系统：彩色-emoji-→-lucide-单色"><a href="#1-图标系统：彩色-emoji-→-lucide-单色" class="headerlink" title="1. 图标系统：彩色 emoji → lucide 单色"></a>1. 图标系统：彩色 emoji → lucide 单色</h2><p>最显眼的”不协调”来源：ActivityBar 用 emoji 当导航图标（✍🧩👥🎭🌍…）。emoji 由系统字体渲染，<strong>颜色、风格、基线全不可控</strong>，和系统蓝 + 灰阶的整体调性完全打架。</p>
+<p>换成 <a href="https://lucide.dev/">lucide-react</a> 单色线性图标，13 个主视图各配一个语义图标：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">写作=Feather  大纲=ListTree  Skill=Puzzle  人物=Users  酒馆=Drama</span><br><span class="line">世界观=Globe  资料=Telescope  审查=ClipboardCheck  书房=LibraryBig</span><br><span class="line">来信=Mail  成就=Trophy  全自动=Bot  素材库=Archive</span><br></pre></td></tr></table></figure>
+
+<p>统一 <code>strokeWidth={1.75}</code>、<code>18px</code>，选中态走 accent 蓝高亮。底部的命令面板、设置也一并换成 <code>Command</code> &#x2F; <code>Settings</code> 图标。一排单色线条下来，整个侧栏瞬间安静、协调。</p>
+<hr>
+<h2 id="2-配色收口：amber-→-系统蓝-accent"><a href="#2-配色收口：amber-→-系统蓝-accent" class="headerlink" title="2. 配色收口：amber → 系统蓝 accent"></a>2. 配色收口：amber → 系统蓝 accent</h2><p>项目早期残留了一套 <code>amber-*</code>（琥珀橙）色值，和后来确立的系统蓝 <code>accent-*</code> 体系并存——有些按钮是橙的，有些是蓝的，毫无规律。</p>
+<p>直接做了一次全量 codemod：把 <code>amber-</code> 全部替换成 <code>accent-</code>，覆盖 <strong>90 个文件、337 处引用</strong>，再删掉 <code>tailwind.config.cjs</code> 里已经没人用的 <code>amber</code> 别名块。配色从此只有一套蓝。</p>
+<blockquote>
+<p>教训：颜色别名要么从第一天就定死，要么趁早 codemod。拖到几十个文件都在用了，每多一天都更难收。</p>
+</blockquote>
+<hr>
+<h2 id="3-主题适配：白色模式不该是黑的"><a href="#3-主题适配：白色模式不该是黑的" class="headerlink" title="3. 主题适配：白色模式不该是黑的"></a>3. 主题适配：白色模式不该是黑的</h2><p>TitleBar 之前把深色渐变背景<strong>写死成 hex</strong>，白色主题下自然还是黑的；上面的高光线、状态胶囊、窗口按钮 hover 也都是”白字配深底”的硬编码。</p>
+<p>改法是让每一处都带 <code>dark:</code> 变体，浅色走浅、深色走深：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根容器：浅色实底 + 深色才用玻璃渐变</span></span><br><span class="line">className=<span class="string">&quot;border-ink-700 bg-ink-800 text-ink-200</span></span><br><span class="line"><span class="string">  dark:border-white/[0.06] dark:bg-gradient-to-b</span></span><br><span class="line"><span class="string">  dark:from-[#0e1626] dark:via-[#0b1322] dark:to-[#0a0e1a]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>顺手把 BrandMark logo 也重画了：原来那版在白底上带一圈琥珀辉光 + 深色叠层，<strong>糊成一团</strong>。新版是系统蓝 squircle + 白色羽毛笔，浅深底都干净。窗口底色也从深色 <code>#0a0e1a</code> 改成浅色 <code>#f7fafe</code>，缩放时新露出的边缘不再闪一帧深色。</p>
+<hr>
+<h2 id="4-空状态：从”一行灰字”到”有指引、有落点”"><a href="#4-空状态：从”一行灰字”到”有指引、有落点”" class="headerlink" title="4. 空状态：从”一行灰字”到”有指引、有落点”"></a>4. 空状态：从”一行灰字”到”有指引、有落点”</h2><p>最影响第一印象的，是各页面的空状态。比如新建项目后进写作页，整个编辑区只有一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选一章开始创作，或在左侧新建。</span><br></pre></td></tr></table></figure>
+
+<p>大片空白里一行小灰字，既不知道点哪，也显得页面”没做完”。</p>
+<p>把这些 bare 文案统一换成项目里早就有、却没用起来的 <code>EmptyState</code> 组件——<strong>大图标 + 标题 + 说明 + 可点的主按钮</strong>：</p>
+<ul>
+<li><strong>写作页</strong>：✍ +「开始你的第一章」+ 一个直接能点的 <strong>新建本章</strong> 按钮（回调从 WorkspacePage 透传进来）；</li>
+<li><strong>人物页</strong>：👤 + 选择&#x2F;导入角色的引导；</li>
+<li><strong>来信页</strong>：✉ + 选信查看的引导。</li>
+</ul>
+<p>空状态从”系统好像卡住了”变成”我知道下一步该干嘛”。其余页面那些已经是带边框引导卡的空状态（如各页”未选择项目”）就<strong>没动</strong>——没必要为了统一而统一，强行改版只会引入看不见的回归。</p>
+<hr>
+<h2 id="5-桌宠重构：4-物种手绘-SVG-→-单一-Lottie-吉祥物"><a href="#5-桌宠重构：4-物种手绘-SVG-→-单一-Lottie-吉祥物" class="headerlink" title="5. 桌宠重构：4 物种手绘 SVG → 单一 Lottie 吉祥物"></a>5. 桌宠重构：4 物种手绘 SVG → 单一 Lottie 吉祥物</h2><p>桌宠原来用 600 多行纯手写 SVG 拼了 4 个物种（猫 &#x2F; 狐 &#x2F; 鸮 &#x2F; 章鱼），靠代码摆形状，可爱上限极低。</p>
+<p>这次方向定为：<strong>收敛成 1 个吉祥物，引入 <a href="https://lottiefiles.com/">Lottie</a> 动画</strong>（接受 Lottie Simple License，可商用免署名，分发随附许可文本）。</p>
+<p>技术上用 <code>lottie-react</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> mascot <span class="keyword">from</span> <span class="string">&quot;../../assets/companion/mascot.json&quot;</span>;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Lottie</span> <span class="attr">animationData</span>=<span class="string">&#123;mascot&#125;</span> <span class="attr">loop</span> <span class="attr">autoplay</span> <span class="attr">lottieRef</span>=<span class="string">&#123;ref&#125;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>新建 <code>CompanionLottie</code> 顶替原来的 <code>PetSprite</code>（整文件删除），props 对齐。一个关键取舍要讲清楚：</p>
+<blockquote>
+<p>现成的 Lottie <strong>没法复刻原来 11 种状态的专属造型</strong>（番茄钟戴眼镜、dizzy 转圈等）。所以分工是：<strong>Lottie 只负责基础角色 + idle&#x2F;typing 的可爱循环</strong>，状态表达继续靠与物种无关的手段——容器级 CSS 关键帧（bob&#x2F;jump&#x2F;breathe）、已有的粒子 &#x2F; 节日 &#x2F; 番茄钟环叠层，以及按状态微调 Lottie 播放速度（typing 略快、sleepy 放慢、cheering 加速）。</p>
+</blockquote>
+<p>代价是状态表现少几分”专属感”，换来的是角色本身可爱得多。<code>companion-store</code> 里的 <code>pet</code> &#x2F; <code>secondaryPet</code> 多物种字段、persona 的物种分支也一并收敛成单一吉祥物（默认名「墨墨」）。reduced-motion 下 Lottie 暂停为静态首帧，尊重系统的”减弱动态效果”。</p>
+<p>集成层我搭好了——<strong>换文件即生效</strong>，最终那个”软萌”角色由我自己挑素材替换 <code>mascot.json</code> 即可，不用改代码。</p>
+<hr>
+<h2 id="6-窗口缩放流畅度：25-层模糊的代价"><a href="#6-窗口缩放流畅度：25-层模糊的代价" class="headerlink" title="6. 窗口缩放流畅度：25 层模糊的代价"></a>6. 窗口缩放流畅度：25 层模糊的代价</h2><p>拖拽缩放窗口明显卡顿。排查下来，根因是界面里<strong>铺了二十多层 <code>backdrop-filter: blur</code></strong>（玻璃质感的卡片、弹层、标题栏）。静止时没问题，但 resize 期间每一帧都要重新计算这些模糊区域，重绘成本爆炸。</p>
+<p>解决思路：<strong>只在缩放进行中临时关掉模糊，静止时立刻恢复</strong>。</p>
+<p>写了个 <code>use-window-resize-perf</code> hook——监听 resize，给 <code>&lt;html&gt;</code> 挂上 <code>win-resizing</code> 类（rAF 触发，160ms debounce 移除），CSS 里：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *,</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *<span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: none <span class="meta">!important</span>;</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>拖拽时模糊全停，掉帧消失；松手 160ms 后玻璃质感回来，肉眼几乎察觉不到切换。SelectionToolbar 的 scroll&#x2F;resize 重算也顺手用 rAF 合并了。</p>
+<hr>
+<h2 id="7-页面切换-引导页动效"><a href="#7-页面切换-引导页动效" class="headerlink" title="7. 页面切换 &amp; 引导页动效"></a>7. 页面切换 &amp; 引导页动效</h2><p>主视图切换原来是瞬间硬切。包了一层 <code>AnimatedPage</code>（基于 <code>motion</code> 的 <code>AnimatePresence mode=&quot;wait&quot;</code>），13 个页面切换时淡入 + 轻微上移，贴近 macOS 单窗口切换的清晰感；引导页步骤之间也加了过渡。所有动效都接 <code>useReducedMotion</code>，关了系统动画就退化成纯淡入淡出，不强加位移。</p>
+<hr>
+<h2 id="8-顺手做的工程化"><a href="#8-顺手做的工程化" class="headerlink" title="8. 顺手做的工程化"></a>8. 顺手做的工程化</h2><ul>
+<li>删掉死代码：没人用的 <code>useAppShortcuts</code> 钩子、<code>amber</code> Tailwind 别名；</li>
+<li>新增 <code>verify-skill.cjs</code>：skill 仓库往返 + skill-engine 集成冒烟测试，挂进 <code>verify:all</code>；</li>
+<li>新增 <code>swap-sqlite-abi.cjs</code>：一键诊断 &#x2F; 切换 better-sqlite3 的 Node↔Electron ABI（上一篇吐槽过的双 ABI 噩梦，这次给了个趁手的工具）。</li>
+</ul>
+<hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-7.gif" alt="hitori" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
+<h2 id="9-这一轮的数字"><a href="#9-这一轮的数字" class="headerlink" title="9. 这一轮的数字"></a>9. 这一轮的数字</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>这次改动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>改动文件</td>
+<td><strong>115 个</strong>（codemod 占大头）</td>
+</tr>
+<tr>
+<td>净变更</td>
+<td>~1700 增 &#x2F; ~1700 删</td>
+</tr>
+<tr>
+<td>配色统一</td>
+<td>amber → accent，<strong>90 文件 337 处</strong></td>
+</tr>
+<tr>
+<td>图标替换</td>
+<td>13 视图 + 2 工具，全量 lucide</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>PetSprite.tsx（600+ 行手绘 SVG）</td>
+</tr>
+<tr>
+<td>新增依赖</td>
+<td><code>lottie-react</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这一轮没有任何一行是”新功能”，全是”原来能用，但用着难受”的地方。功能做到闭环之后，<strong>真正拉开体验差距的就是这些细节</strong>：图标统不统一、空状态有没有指引、缩放卡不卡、白天模式是不是真的白。</p>
+<p>设计哲学没变——本地优先、数据是用户的。只是这次多补一句：<strong>工具不光要能用，还得让人愿意一直用下去。</strong></p>
+<p>如果你也在做 Electron 桌面应用，这几个点（backdrop-blur 缩放性能、主题硬编码、空状态引导）大概率你也会踩到，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 交流。</p>
+<hr>
+<p><strong>当前版本</strong>：v0.1.0-beta.12（打磨中，未发版）<br><strong>基线提交</strong>：f33ab82 (2026-05-26)<br><strong>本轮性质</strong>：UI&#x2F;UX 打磨，无新功能</p>
+]]></content>
+      <categories>
+        <category>项目记录</category>
+      </categories>
+      <tags>
+        <tag>Electron</tag>
+        <tag>TypeScript</tag>
+        <tag>devlog</tag>
+        <tag>React</tag>
+        <tag>UI/UX</tag>
+        <tag>Lottie</tag>
+        <tag>lucide</tag>
+        <tag>TailwindCSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地</title>
+    <url>/posts/inkforge-m10-followup-devlog/</url>
+    <content><![CDATA[<blockquote>
+<p>上一篇《<a href="/posts/inkforge-beta19-m10-devlog/">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</a>》写到 beta.19，并提到 6 月 18-19 日还有一批 M10 polish WIP 没完全收束。今天这篇就是把那部分继续往前推后的记录：不急着换版本号，先把已经暴露出来的隐患一个个按住。</p>
+</blockquote>
+<p>这次的关键词还是 M10：<strong>体验打磨、工程边界、数据可信、发布可靠性</strong>。</p>
+<h2 id="0-这次补上了什么"><a href="#0-这次补上了什么" class="headerlink" title="0. 这次补上了什么"></a>0. 这次补上了什么</h2><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>进展</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IPC 边界</td>
+<td>补齐 validation 测试，覆盖 settings、provider、review、world-pack、character、tavern 等高风险入口</td>
+</tr>
+<tr>
+<td>World Pack</td>
+<td>融合预览保存时不再二次调用模型，直接保存用户审核过的预览内容</td>
+</tr>
+<tr>
+<td>写作输入</td>
+<td>编辑器、章节缓存、世界观详情页继续加固，避免旧数据回流覆盖新输入</td>
+</tr>
+<tr>
+<td>状态反馈</td>
+<td>多处短状态提示改成可清理计时器，组件关闭或重开时不会被旧 timer 反向改状态</td>
+</tr>
+<tr>
+<td>UI 动效</td>
+<td>继续替换零散 Tailwind 动画类，统一走 motion token &#x2F; MotionSpinner，并照顾 reduced motion</td>
+</tr>
+<tr>
+<td>验证</td>
+<td>桌面 typecheck、根 typecheck、desktop build、desktop test、a11y 静态扫描、diff check 均通过过</td>
+</tr>
+</tbody></table>
+<p>上一篇已经讲过“为什么要把大纲页的正文生成职责收回 AI 写作页”。这一篇更偏工程收尾：功能看起来可能不大，但它们决定软件在真实使用中会不会突然让人失去信任。</p>
+<hr>
+<h2 id="1-IPC-validation-从“改了”变成“有测试守住”"><a href="#1-IPC-validation-从“改了”变成“有测试守住”" class="headerlink" title="1. IPC validation 从“改了”变成“有测试守住”"></a>1. IPC validation 从“改了”变成“有测试守住”</h2><p>Electron 的 renderer 到 main 之间，TypeScript 只能在开发时帮忙；真正运行时传进来的还是普通对象。上一轮已经把大量 <code>ipcMain.handle(... input: XxxInput)</code> 的入口改成 runtime parse，这一轮继续补回归测试。</p>
+<p>现在 validation 测试覆盖了几类最容易出事的边界：</p>
+<ul>
+<li><code>settings:set</code> 只允许已知设置项，并按每个 key 的真实类型解析。</li>
+<li>provider &#x2F; model 相关字段走白名单，不让任意字符串直接落到主进程逻辑里。</li>
+<li>review、world-pack、character、tavern 这些会读写内容或触发模型调用的入口，都有输入结构校验。</li>
+<li>静态扫描继续防止以后又把 IPC handler 写回裸 typed input 参数。</li>
+</ul>
+<p>这类测试不会让界面多一个按钮，但它会减少“以后改着改着又绕过解析层”的概率。</p>
+<p>我越来越觉得桌面 AI 工具里，IPC validation 不应该被当成安全附加项。只要主进程能碰文件、数据库、模型配置、导入导出，它就是产品可信度的一部分。</p>
+<h2 id="2-World-Pack-融合：保存的是用户看过的那一版"><a href="#2-World-Pack-融合：保存的是用户看过的那一版" class="headerlink" title="2. World Pack 融合：保存的是用户看过的那一版"></a>2. World Pack 融合：保存的是用户看过的那一版</h2><p>这次还修了一个语义上很重要的问题：World Pack 融合预览。</p>
+<p>之前的流程里，用户先生成融合预览，满意后再点“保存为新卡”。如果保存动作内部重新调用一次模型，那就会出现一个危险错位：</p>
+<blockquote>
+<p>用户审核的是 A，最后落库的可能是 B。</p>
+</blockquote>
+<p>这对写作设定工具很致命。世界观卡不是临时推荐语，它会进入后续写作参考。如果用户已经看过并确认某一版内容，保存就应该保存这一版，而不是再让模型自由发挥一次。</p>
+<p>现在保存语义被收紧：</p>
+<ul>
+<li>预览阶段生成 <code>suggestion</code>。</li>
+<li>用户点击保存时，把这份 <code>suggestion</code> 作为输入传回主进程。</li>
+<li>主进程 validation 校验这份 reviewed suggestion 的结构。</li>
+<li>service 直接把 reviewed suggestion 持久化。</li>
+<li>插入 pack 和 entries 放在同一笔事务里完成。</li>
+</ul>
+<p>这样之后，World Pack 融合更像一个可审核的创作工具，而不是“看一版、存另一版”的黑盒。</p>
+<hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-3.gif" alt="bocchi working" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
+<h2 id="3-继续处理“输入后消失，刷新后又出现”"><a href="#3-继续处理“输入后消失，刷新后又出现”" class="headerlink" title="3. 继续处理“输入后消失，刷新后又出现”"></a>3. 继续处理“输入后消失，刷新后又出现”</h2><p>上一篇提到过这个问题：输入文字后内容像是消失了，但刷新后又出现。这个现象很迷惑，因为它不是单纯“保存失败”，而是<strong>保存成功后，旧数据又回流覆盖了本地新状态</strong>。</p>
+<p>这次继续把防线补细：</p>
+<ul>
+<li><code>NovelEditor</code> 跳过编辑器自己刚发出的 <code>onChange</code> 回流，避免 value 同步又把正在输入的内容 <code>setContent</code> 回旧版本。</li>
+<li>中文 IME 合成过程中不做外部 <code>setContent</code>，减少输入法过程里的误覆盖。</li>
+<li><code>EditorPane</code> 保存成功、快照恢复后同步更新 <code>chapter-content</code> 查询缓存，不等父级刷新拿旧正文回来。</li>
+<li>世界观详情页用 loaded entry id、dirty snapshot 和 <code>updatedAt</code> 判断外部数据是不是过期，不轻易覆盖正在编辑的条目。</li>
+</ul>
+<p>写作软件的底线不是“功能多”，而是“用户打进去的字不能莫名其妙丢”。哪怕最后发现数据库里还在，只要界面上突然消失，用户都会先怀疑这个工具不可靠。</p>
+<p>这类问题不适合靠“刷新一下就好了”来解释。程序应该主动分清楚：</p>
+<ul>
+<li>这是用户刚输入的本地状态；</li>
+<li>这是刚保存成功的内容；</li>
+<li>这是查询缓存里上一次的旧内容；</li>
+<li>这是父级刷新带回来的外部数据。</li>
+</ul>
+<p>只有这几层不互相踩，编辑体验才会稳定。</p>
+<h2 id="4-状态计时器不能散落在各处"><a href="#4-状态计时器不能散落在各处" class="headerlink" title="4. 状态计时器不能散落在各处"></a>4. 状态计时器不能散落在各处</h2><p>M10 里很大一部分改动都跟“短状态反馈”有关。</p>
+<p>很多界面会有这样的代码：成功后显示“已保存”，然后 <code>setTimeout</code> 两秒后消失。单独看没问题，组件多起来就会出事：</p>
+<ul>
+<li>弹窗关了，timer 还在后台跑。</li>
+<li>用户马上重新打开，旧 timer 把新状态清掉。</li>
+<li>失败信息还没看清就被成功状态覆盖。</li>
+<li>组件卸载后继续 set state，虽然不一定立刻崩，但行为很脏。</li>
+</ul>
+<p>这次继续收了几条典型路径：</p>
+<ul>
+<li><code>WorldPackEditDialog</code> 的保存状态从裸 <code>setTimeout</code> 改成可清理的 timer helper。</li>
+<li>封面上传开始时进入保存中，成功后短暂显示已保存，失败回到空闲。</li>
+<li><code>PackSlotPanel</code> 复用 <code>useTimedStatus</code>，移除、启停参考、调整顺序都有短暂成功提示；错误保留，并用 <code>role=&quot;alert&quot;</code>。</li>
+<li><code>ReviewReportPanel</code> 关闭修复预览后延迟清空内容的 timer 可以取消，避免旧关闭动画清掉新预览。</li>
+<li>桌宠的临时状态恢复、每日达成延迟标记、双击和长按 timer 都在禁用或卸载时清理。</li>
+</ul>
+<p>这些都不是大功能，但它们会让软件少很多“刚才明明点了，怎么状态又变了”的错觉。</p>
+<h2 id="5-动效继续统一，但不追求花"><a href="#5-动效继续统一，但不追求花" class="headerlink" title="5. 动效继续统一，但不追求花"></a>5. 动效继续统一，但不追求花</h2><p>之前很多地方直接用了 <code>animate-spin</code>、<code>animate-pulse</code>、<code>animate-bounce</code>、<code>transition-all</code>。这些类方便，但在一个大型桌面应用里会逐渐失控：每个组件转法不一样、禁用动效不好处理、按钮宽度容易抖、状态切换也不稳定。</p>
+<p>现在继续往统一方向收：</p>
+<ul>
+<li>loading 用 <code>MotionSpinner</code> &#x2F; <code>MotionSpin</code>。</li>
+<li>进入、退出、hover、tap 尽量走 <code>motion-tokens</code>。</li>
+<li>reduced motion 下少动或不动。</li>
+<li>用稳定尺寸和明确 disabled state 减少布局跳动。</li>
+<li>icon-only 按钮补 <code>aria-label</code> &#x2F; <code>title</code>。</li>
+</ul>
+<p>这个阶段的目标不是让 InkForge “更炫”，而是让它更安静、更稳定、更像一个可以长时间使用的写作工作台。</p>
+<hr>
+<h2 id="6-当前验证状态"><a href="#6-当前验证状态" class="headerlink" title="6. 当前验证状态"></a>6. 当前验证状态</h2><p>这轮改动在本地跑过多组检查。比较关键的结果：</p>
+<ul>
+<li><code>pnpm --filter @inkforge/desktop typecheck</code>：通过。</li>
+<li><code>pnpm typecheck</code>：通过。</li>
+<li><code>pnpm --filter @inkforge/desktop build</code>：通过。</li>
+<li><code>pnpm --filter @inkforge/desktop test</code>：通过，桌面端单测覆盖了新增 validation 和世界图逻辑等路径。</li>
+<li>静态可访问性扫描：没有报告具体问题。</li>
+<li><code>git diff --check</code>：通过。</li>
+<li>renderer 旧动效类扫描：没有发现本轮关注的 <code>animate-spin</code> &#x2F; <code>transition-all</code> 回退。</li>
+<li>dev server 错误日志为空，5173 本地开发服务正常。</li>
+</ul>
+<p>另外，SQLite 当前在 Electron ABI，适合跑本地桌面开发版；如果要跑某些 Node 侧 verify 脚本，需要先切回 Node ABI。这点已经记录成项目经验，避免把 native addon ABI 问题误判成 TypeScript 回归。</p>
+<h2 id="7-还没有结束"><a href="#7-还没有结束" class="headerlink" title="7. 还没有结束"></a>7. 还没有结束</h2><p>M10 还不是“所有 polish 都完成”。现在本地工作区仍然有大量改动，后面更适合按主题拆分：</p>
+<ul>
+<li>IPC validation 模块继续补更细的边界单测。</li>
+<li>EditorPane &#x2F; SkillPage 这类巨型 UI 文件可以继续拆，但需要更严格的视觉回归检查。</li>
+<li>World Graph 还可以补图例、批量关系操作、结构摘要导出，以及和 AI 写作上下文联动。</li>
+<li>World Pack 融合、角色卡、酒馆、审稿这些高频路径还可以继续统一状态反馈和错误恢复。</li>
+<li>0.1.x Windows 构建仍未签名，正式分发前还需要解决代码签名。</li>
+</ul>
+<p>但至少这一轮之后，上一篇里提到的“还有一批本地 WIP”已经有一部分从 WIP 变成了可验证的改动。</p>
+<hr>
+<p style="text-align:center;margin: 32px 0;">
+  <img src="/img/gif/bocchi-11.gif" alt="bocchi reflection" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+</p>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>InkForge 现在最耗时间的已经不是“把一个功能做出来”，而是把功能之间的边界、状态、反馈、保存语义和验证链路逐渐磨平。</p>
+<p>AI 写作工具尤其不能只追求生成能力。真正长期使用时，用户更在意的是：</p>
+<ul>
+<li>我写下的字会不会丢；</li>
+<li>我确认过的设定会不会被偷偷换掉；</li>
+<li>按钮点下去之后软件到底有没有在做事；</li>
+<li>错误发生时我能不能知道原因和下一步；</li>
+<li>本地数据是不是还在我自己手里。</li>
+</ul>
+<p>所以这一轮 M10 还是那句话：不急着宣布大版本，先把真实使用里会刺人的地方继续拔掉。</p>
+<p><strong>当前版本</strong>：v0.1.0-beta.19<br><strong>当前阶段</strong>：M10，体验打磨 + 工程边界 + 发布可靠性<br><strong>最新已提交基线</strong>：4409968 (2026-06-17)<br><strong>备注</strong>：本文记录 beta.19 之后的本地 M10 收口进展，后续还会继续按主题拆分提交</p>
+]]></content>
+      <categories>
+        <category>项目记录</category>
+      </categories>
+      <tags>
+        <tag>Electron</tag>
+        <tag>TypeScript</tag>
+        <tag>AI 写作</tag>
+        <tag>SQLite</tag>
+        <tag>devlog</tag>
+        <tag>React</tag>
+        <tag>UI/UX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</title>
     <url>/posts/inkforge-beta19-m10-devlog/</url>
     <content><![CDATA[<blockquote>
@@ -674,303 +971,6 @@
         <tag>devlog</tag>
         <tag>React</tag>
         <tag>UI/UX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>InkForge M10 继续收口：把 beta.19 后的 WIP 逐项落地</title>
-    <url>/posts/inkforge-m10-followup-devlog/</url>
-    <content><![CDATA[<blockquote>
-<p>上一篇《<a href="/posts/inkforge-beta19-m10-devlog/">InkForge 进度同步：从 beta.12 到 beta.19，先把写作链路打稳</a>》写到 beta.19，并提到 6 月 18-19 日还有一批 M10 polish WIP 没完全收束。今天这篇就是把那部分继续往前推后的记录：不急着换版本号，先把已经暴露出来的隐患一个个按住。</p>
-</blockquote>
-<p>这次的关键词还是 M10：<strong>体验打磨、工程边界、数据可信、发布可靠性</strong>。</p>
-<h2 id="0-这次补上了什么"><a href="#0-这次补上了什么" class="headerlink" title="0. 这次补上了什么"></a>0. 这次补上了什么</h2><table>
-<thead>
-<tr>
-<th>方向</th>
-<th>进展</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IPC 边界</td>
-<td>补齐 validation 测试，覆盖 settings、provider、review、world-pack、character、tavern 等高风险入口</td>
-</tr>
-<tr>
-<td>World Pack</td>
-<td>融合预览保存时不再二次调用模型，直接保存用户审核过的预览内容</td>
-</tr>
-<tr>
-<td>写作输入</td>
-<td>编辑器、章节缓存、世界观详情页继续加固，避免旧数据回流覆盖新输入</td>
-</tr>
-<tr>
-<td>状态反馈</td>
-<td>多处短状态提示改成可清理计时器，组件关闭或重开时不会被旧 timer 反向改状态</td>
-</tr>
-<tr>
-<td>UI 动效</td>
-<td>继续替换零散 Tailwind 动画类，统一走 motion token &#x2F; MotionSpinner，并照顾 reduced motion</td>
-</tr>
-<tr>
-<td>验证</td>
-<td>桌面 typecheck、根 typecheck、desktop build、desktop test、a11y 静态扫描、diff check 均通过过</td>
-</tr>
-</tbody></table>
-<p>上一篇已经讲过“为什么要把大纲页的正文生成职责收回 AI 写作页”。这一篇更偏工程收尾：功能看起来可能不大，但它们决定软件在真实使用中会不会突然让人失去信任。</p>
-<hr>
-<h2 id="1-IPC-validation-从“改了”变成“有测试守住”"><a href="#1-IPC-validation-从“改了”变成“有测试守住”" class="headerlink" title="1. IPC validation 从“改了”变成“有测试守住”"></a>1. IPC validation 从“改了”变成“有测试守住”</h2><p>Electron 的 renderer 到 main 之间，TypeScript 只能在开发时帮忙；真正运行时传进来的还是普通对象。上一轮已经把大量 <code>ipcMain.handle(... input: XxxInput)</code> 的入口改成 runtime parse，这一轮继续补回归测试。</p>
-<p>现在 validation 测试覆盖了几类最容易出事的边界：</p>
-<ul>
-<li><code>settings:set</code> 只允许已知设置项，并按每个 key 的真实类型解析。</li>
-<li>provider &#x2F; model 相关字段走白名单，不让任意字符串直接落到主进程逻辑里。</li>
-<li>review、world-pack、character、tavern 这些会读写内容或触发模型调用的入口，都有输入结构校验。</li>
-<li>静态扫描继续防止以后又把 IPC handler 写回裸 typed input 参数。</li>
-</ul>
-<p>这类测试不会让界面多一个按钮，但它会减少“以后改着改着又绕过解析层”的概率。</p>
-<p>我越来越觉得桌面 AI 工具里，IPC validation 不应该被当成安全附加项。只要主进程能碰文件、数据库、模型配置、导入导出，它就是产品可信度的一部分。</p>
-<h2 id="2-World-Pack-融合：保存的是用户看过的那一版"><a href="#2-World-Pack-融合：保存的是用户看过的那一版" class="headerlink" title="2. World Pack 融合：保存的是用户看过的那一版"></a>2. World Pack 融合：保存的是用户看过的那一版</h2><p>这次还修了一个语义上很重要的问题：World Pack 融合预览。</p>
-<p>之前的流程里，用户先生成融合预览，满意后再点“保存为新卡”。如果保存动作内部重新调用一次模型，那就会出现一个危险错位：</p>
-<blockquote>
-<p>用户审核的是 A，最后落库的可能是 B。</p>
-</blockquote>
-<p>这对写作设定工具很致命。世界观卡不是临时推荐语，它会进入后续写作参考。如果用户已经看过并确认某一版内容，保存就应该保存这一版，而不是再让模型自由发挥一次。</p>
-<p>现在保存语义被收紧：</p>
-<ul>
-<li>预览阶段生成 <code>suggestion</code>。</li>
-<li>用户点击保存时，把这份 <code>suggestion</code> 作为输入传回主进程。</li>
-<li>主进程 validation 校验这份 reviewed suggestion 的结构。</li>
-<li>service 直接把 reviewed suggestion 持久化。</li>
-<li>插入 pack 和 entries 放在同一笔事务里完成。</li>
-</ul>
-<p>这样之后，World Pack 融合更像一个可审核的创作工具，而不是“看一版、存另一版”的黑盒。</p>
-<hr>
-<p style="text-align:center;margin: 32px 0;">
-  <img src="/img/gif/bocchi-3.gif" alt="bocchi working" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
-
-<h2 id="3-继续处理“输入后消失，刷新后又出现”"><a href="#3-继续处理“输入后消失，刷新后又出现”" class="headerlink" title="3. 继续处理“输入后消失，刷新后又出现”"></a>3. 继续处理“输入后消失，刷新后又出现”</h2><p>上一篇提到过这个问题：输入文字后内容像是消失了，但刷新后又出现。这个现象很迷惑，因为它不是单纯“保存失败”，而是<strong>保存成功后，旧数据又回流覆盖了本地新状态</strong>。</p>
-<p>这次继续把防线补细：</p>
-<ul>
-<li><code>NovelEditor</code> 跳过编辑器自己刚发出的 <code>onChange</code> 回流，避免 value 同步又把正在输入的内容 <code>setContent</code> 回旧版本。</li>
-<li>中文 IME 合成过程中不做外部 <code>setContent</code>，减少输入法过程里的误覆盖。</li>
-<li><code>EditorPane</code> 保存成功、快照恢复后同步更新 <code>chapter-content</code> 查询缓存，不等父级刷新拿旧正文回来。</li>
-<li>世界观详情页用 loaded entry id、dirty snapshot 和 <code>updatedAt</code> 判断外部数据是不是过期，不轻易覆盖正在编辑的条目。</li>
-</ul>
-<p>写作软件的底线不是“功能多”，而是“用户打进去的字不能莫名其妙丢”。哪怕最后发现数据库里还在，只要界面上突然消失，用户都会先怀疑这个工具不可靠。</p>
-<p>这类问题不适合靠“刷新一下就好了”来解释。程序应该主动分清楚：</p>
-<ul>
-<li>这是用户刚输入的本地状态；</li>
-<li>这是刚保存成功的内容；</li>
-<li>这是查询缓存里上一次的旧内容；</li>
-<li>这是父级刷新带回来的外部数据。</li>
-</ul>
-<p>只有这几层不互相踩，编辑体验才会稳定。</p>
-<h2 id="4-状态计时器不能散落在各处"><a href="#4-状态计时器不能散落在各处" class="headerlink" title="4. 状态计时器不能散落在各处"></a>4. 状态计时器不能散落在各处</h2><p>M10 里很大一部分改动都跟“短状态反馈”有关。</p>
-<p>很多界面会有这样的代码：成功后显示“已保存”，然后 <code>setTimeout</code> 两秒后消失。单独看没问题，组件多起来就会出事：</p>
-<ul>
-<li>弹窗关了，timer 还在后台跑。</li>
-<li>用户马上重新打开，旧 timer 把新状态清掉。</li>
-<li>失败信息还没看清就被成功状态覆盖。</li>
-<li>组件卸载后继续 set state，虽然不一定立刻崩，但行为很脏。</li>
-</ul>
-<p>这次继续收了几条典型路径：</p>
-<ul>
-<li><code>WorldPackEditDialog</code> 的保存状态从裸 <code>setTimeout</code> 改成可清理的 timer helper。</li>
-<li>封面上传开始时进入保存中，成功后短暂显示已保存，失败回到空闲。</li>
-<li><code>PackSlotPanel</code> 复用 <code>useTimedStatus</code>，移除、启停参考、调整顺序都有短暂成功提示；错误保留，并用 <code>role=&quot;alert&quot;</code>。</li>
-<li><code>ReviewReportPanel</code> 关闭修复预览后延迟清空内容的 timer 可以取消，避免旧关闭动画清掉新预览。</li>
-<li>桌宠的临时状态恢复、每日达成延迟标记、双击和长按 timer 都在禁用或卸载时清理。</li>
-</ul>
-<p>这些都不是大功能，但它们会让软件少很多“刚才明明点了，怎么状态又变了”的错觉。</p>
-<h2 id="5-动效继续统一，但不追求花"><a href="#5-动效继续统一，但不追求花" class="headerlink" title="5. 动效继续统一，但不追求花"></a>5. 动效继续统一，但不追求花</h2><p>之前很多地方直接用了 <code>animate-spin</code>、<code>animate-pulse</code>、<code>animate-bounce</code>、<code>transition-all</code>。这些类方便，但在一个大型桌面应用里会逐渐失控：每个组件转法不一样、禁用动效不好处理、按钮宽度容易抖、状态切换也不稳定。</p>
-<p>现在继续往统一方向收：</p>
-<ul>
-<li>loading 用 <code>MotionSpinner</code> &#x2F; <code>MotionSpin</code>。</li>
-<li>进入、退出、hover、tap 尽量走 <code>motion-tokens</code>。</li>
-<li>reduced motion 下少动或不动。</li>
-<li>用稳定尺寸和明确 disabled state 减少布局跳动。</li>
-<li>icon-only 按钮补 <code>aria-label</code> &#x2F; <code>title</code>。</li>
-</ul>
-<p>这个阶段的目标不是让 InkForge “更炫”，而是让它更安静、更稳定、更像一个可以长时间使用的写作工作台。</p>
-<hr>
-<h2 id="6-当前验证状态"><a href="#6-当前验证状态" class="headerlink" title="6. 当前验证状态"></a>6. 当前验证状态</h2><p>这轮改动在本地跑过多组检查。比较关键的结果：</p>
-<ul>
-<li><code>pnpm --filter @inkforge/desktop typecheck</code>：通过。</li>
-<li><code>pnpm typecheck</code>：通过。</li>
-<li><code>pnpm --filter @inkforge/desktop build</code>：通过。</li>
-<li><code>pnpm --filter @inkforge/desktop test</code>：通过，桌面端单测覆盖了新增 validation 和世界图逻辑等路径。</li>
-<li>静态可访问性扫描：没有报告具体问题。</li>
-<li><code>git diff --check</code>：通过。</li>
-<li>renderer 旧动效类扫描：没有发现本轮关注的 <code>animate-spin</code> &#x2F; <code>transition-all</code> 回退。</li>
-<li>dev server 错误日志为空，5173 本地开发服务正常。</li>
-</ul>
-<p>另外，SQLite 当前在 Electron ABI，适合跑本地桌面开发版；如果要跑某些 Node 侧 verify 脚本，需要先切回 Node ABI。这点已经记录成项目经验，避免把 native addon ABI 问题误判成 TypeScript 回归。</p>
-<h2 id="7-还没有结束"><a href="#7-还没有结束" class="headerlink" title="7. 还没有结束"></a>7. 还没有结束</h2><p>M10 还不是“所有 polish 都完成”。现在本地工作区仍然有大量改动，后面更适合按主题拆分：</p>
-<ul>
-<li>IPC validation 模块继续补更细的边界单测。</li>
-<li>EditorPane &#x2F; SkillPage 这类巨型 UI 文件可以继续拆，但需要更严格的视觉回归检查。</li>
-<li>World Graph 还可以补图例、批量关系操作、结构摘要导出，以及和 AI 写作上下文联动。</li>
-<li>World Pack 融合、角色卡、酒馆、审稿这些高频路径还可以继续统一状态反馈和错误恢复。</li>
-<li>0.1.x Windows 构建仍未签名，正式分发前还需要解决代码签名。</li>
-</ul>
-<p>但至少这一轮之后，上一篇里提到的“还有一批本地 WIP”已经有一部分从 WIP 变成了可验证的改动。</p>
-<hr>
-<p style="text-align:center;margin: 32px 0;">
-  <img src="/img/gif/bocchi-11.gif" alt="bocchi reflection" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
-
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>InkForge 现在最耗时间的已经不是“把一个功能做出来”，而是把功能之间的边界、状态、反馈、保存语义和验证链路逐渐磨平。</p>
-<p>AI 写作工具尤其不能只追求生成能力。真正长期使用时，用户更在意的是：</p>
-<ul>
-<li>我写下的字会不会丢；</li>
-<li>我确认过的设定会不会被偷偷换掉；</li>
-<li>按钮点下去之后软件到底有没有在做事；</li>
-<li>错误发生时我能不能知道原因和下一步；</li>
-<li>本地数据是不是还在我自己手里。</li>
-</ul>
-<p>所以这一轮 M10 还是那句话：不急着宣布大版本，先把真实使用里会刺人的地方继续拔掉。</p>
-<p><strong>当前版本</strong>：v0.1.0-beta.19<br><strong>当前阶段</strong>：M10，体验打磨 + 工程边界 + 发布可靠性<br><strong>最新已提交基线</strong>：4409968 (2026-06-17)<br><strong>备注</strong>：本文记录 beta.19 之后的本地 M10 收口进展，后续还会继续按主题拆分提交</p>
-]]></content>
-      <categories>
-        <category>项目记录</category>
-      </categories>
-      <tags>
-        <tag>Electron</tag>
-        <tag>TypeScript</tag>
-        <tag>AI 写作</tag>
-        <tag>SQLite</tag>
-        <tag>devlog</tag>
-        <tag>React</tag>
-        <tag>UI/UX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>InkForge 打磨记：从「能用」到「顺手」的一次 UI/UX 收口</title>
-    <url>/posts/inkforge-polish-devlog/</url>
-    <content><![CDATA[<blockquote>
-<p>上一篇《<a href="/posts/inkforge-devlog/">InkForge 开发实录</a>》把引擎、数据、IPC 全景拆了一遍。这一篇相反——<strong>没有任何新功能</strong>，全是”看着难受所以动手改”的细节打磨。功能闭环之后，决定一个工具用着舒不舒服的，往往就是这些不起眼的地方。</p>
-</blockquote>
-<h2 id="0-为什么做这一轮"><a href="#0-为什么做这一轮" class="headerlink" title="0. 为什么做这一轮"></a>0. 为什么做这一轮</h2><p>beta.12 之后，InkForge 该有的都有了。但真正每天用，几个地方一直硌得慌：</p>
-<ul>
-<li>左侧导航栏一排<strong>彩色 emoji</strong>，和干净的蓝灰主界面凑在一起，像两个设计师打架；</li>
-<li>切到白色主题，顶部标题栏<strong>还是黑的</strong>；</li>
-<li>新建项目第一眼，编辑区<strong>一行灰字飘在大片空白里</strong>，不知道下一步干嘛；</li>
-<li>桌宠是纯手写 SVG 画的，<strong>怎么看怎么丑</strong>；</li>
-<li>窗口一拖拽缩放就<strong>卡顿掉帧</strong>。</li>
-</ul>
-<p>这次就专门收这些口。</p>
-<hr>
-<h2 id="1-图标系统：彩色-emoji-→-lucide-单色"><a href="#1-图标系统：彩色-emoji-→-lucide-单色" class="headerlink" title="1. 图标系统：彩色 emoji → lucide 单色"></a>1. 图标系统：彩色 emoji → lucide 单色</h2><p>最显眼的”不协调”来源：ActivityBar 用 emoji 当导航图标（✍🧩👥🎭🌍…）。emoji 由系统字体渲染，<strong>颜色、风格、基线全不可控</strong>，和系统蓝 + 灰阶的整体调性完全打架。</p>
-<p>换成 <a href="https://lucide.dev/">lucide-react</a> 单色线性图标，13 个主视图各配一个语义图标：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">写作=Feather  大纲=ListTree  Skill=Puzzle  人物=Users  酒馆=Drama</span><br><span class="line">世界观=Globe  资料=Telescope  审查=ClipboardCheck  书房=LibraryBig</span><br><span class="line">来信=Mail  成就=Trophy  全自动=Bot  素材库=Archive</span><br></pre></td></tr></table></figure>
-
-<p>统一 <code>strokeWidth={1.75}</code>、<code>18px</code>，选中态走 accent 蓝高亮。底部的命令面板、设置也一并换成 <code>Command</code> &#x2F; <code>Settings</code> 图标。一排单色线条下来，整个侧栏瞬间安静、协调。</p>
-<hr>
-<h2 id="2-配色收口：amber-→-系统蓝-accent"><a href="#2-配色收口：amber-→-系统蓝-accent" class="headerlink" title="2. 配色收口：amber → 系统蓝 accent"></a>2. 配色收口：amber → 系统蓝 accent</h2><p>项目早期残留了一套 <code>amber-*</code>（琥珀橙）色值，和后来确立的系统蓝 <code>accent-*</code> 体系并存——有些按钮是橙的，有些是蓝的，毫无规律。</p>
-<p>直接做了一次全量 codemod：把 <code>amber-</code> 全部替换成 <code>accent-</code>，覆盖 <strong>90 个文件、337 处引用</strong>，再删掉 <code>tailwind.config.cjs</code> 里已经没人用的 <code>amber</code> 别名块。配色从此只有一套蓝。</p>
-<blockquote>
-<p>教训：颜色别名要么从第一天就定死，要么趁早 codemod。拖到几十个文件都在用了，每多一天都更难收。</p>
-</blockquote>
-<hr>
-<h2 id="3-主题适配：白色模式不该是黑的"><a href="#3-主题适配：白色模式不该是黑的" class="headerlink" title="3. 主题适配：白色模式不该是黑的"></a>3. 主题适配：白色模式不该是黑的</h2><p>TitleBar 之前把深色渐变背景<strong>写死成 hex</strong>，白色主题下自然还是黑的；上面的高光线、状态胶囊、窗口按钮 hover 也都是”白字配深底”的硬编码。</p>
-<p>改法是让每一处都带 <code>dark:</code> 变体，浅色走浅、深色走深：</p>
-<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根容器：浅色实底 + 深色才用玻璃渐变</span></span><br><span class="line">className=<span class="string">&quot;border-ink-700 bg-ink-800 text-ink-200</span></span><br><span class="line"><span class="string">  dark:border-white/[0.06] dark:bg-gradient-to-b</span></span><br><span class="line"><span class="string">  dark:from-[#0e1626] dark:via-[#0b1322] dark:to-[#0a0e1a]&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>顺手把 BrandMark logo 也重画了：原来那版在白底上带一圈琥珀辉光 + 深色叠层，<strong>糊成一团</strong>。新版是系统蓝 squircle + 白色羽毛笔，浅深底都干净。窗口底色也从深色 <code>#0a0e1a</code> 改成浅色 <code>#f7fafe</code>，缩放时新露出的边缘不再闪一帧深色。</p>
-<hr>
-<h2 id="4-空状态：从”一行灰字”到”有指引、有落点”"><a href="#4-空状态：从”一行灰字”到”有指引、有落点”" class="headerlink" title="4. 空状态：从”一行灰字”到”有指引、有落点”"></a>4. 空状态：从”一行灰字”到”有指引、有落点”</h2><p>最影响第一印象的，是各页面的空状态。比如新建项目后进写作页，整个编辑区只有一行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选一章开始创作，或在左侧新建。</span><br></pre></td></tr></table></figure>
-
-<p>大片空白里一行小灰字，既不知道点哪，也显得页面”没做完”。</p>
-<p>把这些 bare 文案统一换成项目里早就有、却没用起来的 <code>EmptyState</code> 组件——<strong>大图标 + 标题 + 说明 + 可点的主按钮</strong>：</p>
-<ul>
-<li><strong>写作页</strong>：✍ +「开始你的第一章」+ 一个直接能点的 <strong>新建本章</strong> 按钮（回调从 WorkspacePage 透传进来）；</li>
-<li><strong>人物页</strong>：👤 + 选择&#x2F;导入角色的引导；</li>
-<li><strong>来信页</strong>：✉ + 选信查看的引导。</li>
-</ul>
-<p>空状态从”系统好像卡住了”变成”我知道下一步该干嘛”。其余页面那些已经是带边框引导卡的空状态（如各页”未选择项目”）就<strong>没动</strong>——没必要为了统一而统一，强行改版只会引入看不见的回归。</p>
-<hr>
-<h2 id="5-桌宠重构：4-物种手绘-SVG-→-单一-Lottie-吉祥物"><a href="#5-桌宠重构：4-物种手绘-SVG-→-单一-Lottie-吉祥物" class="headerlink" title="5. 桌宠重构：4 物种手绘 SVG → 单一 Lottie 吉祥物"></a>5. 桌宠重构：4 物种手绘 SVG → 单一 Lottie 吉祥物</h2><p>桌宠原来用 600 多行纯手写 SVG 拼了 4 个物种（猫 &#x2F; 狐 &#x2F; 鸮 &#x2F; 章鱼），靠代码摆形状，可爱上限极低。</p>
-<p>这次方向定为：<strong>收敛成 1 个吉祥物，引入 <a href="https://lottiefiles.com/">Lottie</a> 动画</strong>（接受 Lottie Simple License，可商用免署名，分发随附许可文本）。</p>
-<p>技术上用 <code>lottie-react</code>：</p>
-<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> mascot <span class="keyword">from</span> <span class="string">&quot;../../assets/companion/mascot.json&quot;</span>;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Lottie</span> <span class="attr">animationData</span>=<span class="string">&#123;mascot&#125;</span> <span class="attr">loop</span> <span class="attr">autoplay</span> <span class="attr">lottieRef</span>=<span class="string">&#123;ref&#125;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>新建 <code>CompanionLottie</code> 顶替原来的 <code>PetSprite</code>（整文件删除），props 对齐。一个关键取舍要讲清楚：</p>
-<blockquote>
-<p>现成的 Lottie <strong>没法复刻原来 11 种状态的专属造型</strong>（番茄钟戴眼镜、dizzy 转圈等）。所以分工是：<strong>Lottie 只负责基础角色 + idle&#x2F;typing 的可爱循环</strong>，状态表达继续靠与物种无关的手段——容器级 CSS 关键帧（bob&#x2F;jump&#x2F;breathe）、已有的粒子 &#x2F; 节日 &#x2F; 番茄钟环叠层，以及按状态微调 Lottie 播放速度（typing 略快、sleepy 放慢、cheering 加速）。</p>
-</blockquote>
-<p>代价是状态表现少几分”专属感”，换来的是角色本身可爱得多。<code>companion-store</code> 里的 <code>pet</code> &#x2F; <code>secondaryPet</code> 多物种字段、persona 的物种分支也一并收敛成单一吉祥物（默认名「墨墨」）。reduced-motion 下 Lottie 暂停为静态首帧，尊重系统的”减弱动态效果”。</p>
-<p>集成层我搭好了——<strong>换文件即生效</strong>，最终那个”软萌”角色由我自己挑素材替换 <code>mascot.json</code> 即可，不用改代码。</p>
-<hr>
-<h2 id="6-窗口缩放流畅度：25-层模糊的代价"><a href="#6-窗口缩放流畅度：25-层模糊的代价" class="headerlink" title="6. 窗口缩放流畅度：25 层模糊的代价"></a>6. 窗口缩放流畅度：25 层模糊的代价</h2><p>拖拽缩放窗口明显卡顿。排查下来，根因是界面里<strong>铺了二十多层 <code>backdrop-filter: blur</code></strong>（玻璃质感的卡片、弹层、标题栏）。静止时没问题，但 resize 期间每一帧都要重新计算这些模糊区域，重绘成本爆炸。</p>
-<p>解决思路：<strong>只在缩放进行中临时关掉模糊，静止时立刻恢复</strong>。</p>
-<p>写了个 <code>use-window-resize-perf</code> hook——监听 resize，给 <code>&lt;html&gt;</code> 挂上 <code>win-resizing</code> 类（rAF 触发，160ms debounce 移除），CSS 里：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *,</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *<span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-tag">html</span><span class="selector-class">.win-resizing</span> *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">backdrop-filter</span>: none <span class="meta">!important</span>;</span><br><span class="line">  -webkit-<span class="attribute">backdrop-filter</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>拖拽时模糊全停，掉帧消失；松手 160ms 后玻璃质感回来，肉眼几乎察觉不到切换。SelectionToolbar 的 scroll&#x2F;resize 重算也顺手用 rAF 合并了。</p>
-<hr>
-<h2 id="7-页面切换-引导页动效"><a href="#7-页面切换-引导页动效" class="headerlink" title="7. 页面切换 &amp; 引导页动效"></a>7. 页面切换 &amp; 引导页动效</h2><p>主视图切换原来是瞬间硬切。包了一层 <code>AnimatedPage</code>（基于 <code>motion</code> 的 <code>AnimatePresence mode=&quot;wait&quot;</code>），13 个页面切换时淡入 + 轻微上移，贴近 macOS 单窗口切换的清晰感；引导页步骤之间也加了过渡。所有动效都接 <code>useReducedMotion</code>，关了系统动画就退化成纯淡入淡出，不强加位移。</p>
-<hr>
-<h2 id="8-顺手做的工程化"><a href="#8-顺手做的工程化" class="headerlink" title="8. 顺手做的工程化"></a>8. 顺手做的工程化</h2><ul>
-<li>删掉死代码：没人用的 <code>useAppShortcuts</code> 钩子、<code>amber</code> Tailwind 别名；</li>
-<li>新增 <code>verify-skill.cjs</code>：skill 仓库往返 + skill-engine 集成冒烟测试，挂进 <code>verify:all</code>；</li>
-<li>新增 <code>swap-sqlite-abi.cjs</code>：一键诊断 &#x2F; 切换 better-sqlite3 的 Node↔Electron ABI（上一篇吐槽过的双 ABI 噩梦，这次给了个趁手的工具）。</li>
-</ul>
-<hr>
-<p style="text-align:center;margin: 32px 0;">
-  <img src="/img/gif/bocchi-7.gif" alt="hitori" style="max-width:240px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.12);">
-</p>
-
-<h2 id="9-这一轮的数字"><a href="#9-这一轮的数字" class="headerlink" title="9. 这一轮的数字"></a>9. 这一轮的数字</h2><table>
-<thead>
-<tr>
-<th>维度</th>
-<th>这次改动</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>改动文件</td>
-<td><strong>115 个</strong>（codemod 占大头）</td>
-</tr>
-<tr>
-<td>净变更</td>
-<td>~1700 增 &#x2F; ~1700 删</td>
-</tr>
-<tr>
-<td>配色统一</td>
-<td>amber → accent，<strong>90 文件 337 处</strong></td>
-</tr>
-<tr>
-<td>图标替换</td>
-<td>13 视图 + 2 工具，全量 lucide</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>PetSprite.tsx（600+ 行手绘 SVG）</td>
-</tr>
-<tr>
-<td>新增依赖</td>
-<td><code>lottie-react</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这一轮没有任何一行是”新功能”，全是”原来能用，但用着难受”的地方。功能做到闭环之后，<strong>真正拉开体验差距的就是这些细节</strong>：图标统不统一、空状态有没有指引、缩放卡不卡、白天模式是不是真的白。</p>
-<p>设计哲学没变——本地优先、数据是用户的。只是这次多补一句：<strong>工具不光要能用，还得让人愿意一直用下去。</strong></p>
-<p>如果你也在做 Electron 桌面应用，这几个点（backdrop-blur 缩放性能、主题硬编码、空状态引导）大概率你也会踩到，欢迎在 <a href="https://github.com/SuisDokoXD/SuisDokoXD.github.io/issues">GitHub Issues</a> 交流。</p>
-<hr>
-<p><strong>当前版本</strong>：v0.1.0-beta.12（打磨中，未发版）<br><strong>基线提交</strong>：f33ab82 (2026-05-26)<br><strong>本轮性质</strong>：UI&#x2F;UX 打磨，无新功能</p>
-]]></content>
-      <categories>
-        <category>项目记录</category>
-      </categories>
-      <tags>
-        <tag>Electron</tag>
-        <tag>TypeScript</tag>
-        <tag>devlog</tag>
-        <tag>React</tag>
-        <tag>UI/UX</tag>
-        <tag>Lottie</tag>
-        <tag>lucide</tag>
-        <tag>TailwindCSS</tag>
       </tags>
   </entry>
 </search>

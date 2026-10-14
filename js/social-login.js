@@ -20,6 +20,9 @@
     : ['qq', 'wx', 'sina', 'baidu', 'huawei', 'gitee', 'github'];
   var HIDE_GISCUS = CFG.hideGiscus === true;
   var COMMENT_TITLE = CFG.commentTitle || '社交账号评论';
+  // 两套评论并存时，把 Giscus 那块标题写明白，
+  // 否则读者会以为「评论」区就是唯一入口，然后被 GitHub 登录卡住
+  var GISCUS_TITLE = CFG.giscusTitle || 'GitHub 评论（需 GitHub 账号）';
 
   var SESSION_KEY = 'sl_session_v1';
   var RETURN_KEY = 'sl_return_v1';
@@ -130,6 +133,9 @@
   }
 
   function providerName(type) {
+    // 注意：type 缺失时要返回 null，不能返回 undefined，
+    // 否则拼接出来会变成字面量「undefined 登录」显示给用户
+    if (!type) return null;
     return NAMES[type] || type;
   }
 
@@ -392,6 +398,20 @@
     return path;
   }
 
+  /**
+   * 两套评论并存时，把 Giscus 的标题改清楚（只动标题文案和图标，别处不碰）。
+   * 打标记，所以重复执行是幂等的；PJAX 重建 DOM 后标记会消失，会重新打上。
+   */
+  function labelGiscus(container) {
+    var headline = container.querySelector('.comment-head .comment-headline');
+    if (!headline || headline.getAttribute('data-sl-labeled') === '1') return;
+    var icon = headline.querySelector('i');
+    if (icon) icon.className = ICONS.github + ' fa-fw';
+    var text = headline.querySelector('span');
+    if (text) text.textContent = GISCUS_TITLE;
+    headline.setAttribute('data-sl-labeled', '1');
+  }
+
   function renderComments() {
     var container = document.getElementById('post-comment');
     if (!container) return;
@@ -399,6 +419,8 @@
     if (HIDE_GISCUS) {
       var giscus = container.querySelector('.comment-head, .comment-wrap');
       if (giscus) container.classList.add('sl-giscus-hidden');
+    } else {
+      labelGiscus(container);
     }
 
     var section = document.getElementById('sl-comments');
@@ -447,7 +469,8 @@
     header.appendChild(avatarNode(user.faceimg, user.nickname, 'sl-avatar'));
     var meta = el('div', 'sl-editor-meta');
     meta.appendChild(el('strong', null, user.nickname || ''));
-    meta.appendChild(el('span', 'sl-editor-provider', providerName(user.type) + ' 登录'));
+    var providerLabel = providerName(user.type);
+    if (providerLabel) meta.appendChild(el('span', 'sl-editor-provider', providerLabel + ' 登录'));
     header.appendChild(meta);
     box.appendChild(header);
 
